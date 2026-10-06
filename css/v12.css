@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Eliana Capital v12: a golden-hour photo hero on flat cream paper (inspired by mylk-co.com)
+   Loaded after v10.css. Replaces the v11 living background (photos, orbs, dot grid, glow, seeds, grain).
+   - the home hero sits on one full-bleed photo of the Nairobi skyline at sunrise, with the headline and the
+     hands mark centred on top, and the photo melting into cream at the bottom
+   - the rest of the site is flat cream (#fefef1): no gradients, textures or background photos
+   - gooey blob fill on buttons
+   ========================================================================== */
+
+:root{--paper:#fefef1;--cream-deep:#f5f1de;--leaf:#eef3e0}
+html,body{background:var(--paper)}
+
+/* ---------- retire the glow layers ---------- */
+.hero.hero--arch{background:var(--paper)}
+.hero--v10 .hb,.hero--v10 .hero-wm{display:none}
+.hero-slot::before{content:none}
+.sec--mist{background:var(--cream-deep)}
+.sec--leaf{background:var(--leaf)}
+
+/* ---------- the hero photo ---------- */
+.hero--v10{--photo-h:max(100svh,800px)}
+.hero-photo{position:absolute;left:0;right:0;top:0;height:var(--photo-h);z-index:-1;overflow:hidden;pointer-events:none;
+  -webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;
+  transform:scale(1.04);animation:ph-drift 26s ease-in-out infinite alternate}
+@keyframes ph-drift{to{transform:scale(1.11) translate3d(-1.2%,.8%,0)}}
+/* a pale sunlit haze at the top (like the reference), so the dark headline reads clearly */
+.hero-photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(254,254,241,.66) 0%,rgba(254,254,241,.38) 30%,rgba(254,254,241,0) 58%)}
+.hero--v10 .hero-inner,.hero--v10 .arch-wrap{position:relative;z-index:1}
+.hero--v10 h1,.hero--v10 h1 .ln>span{color:var(--blue)}
+.hero--v10 .swoosh{color:var(--blue)}
+.hero--v10 .swoosh path{stroke:var(--green-ink)}
+.hero--v10 .hero-word,.hero--v10 .rp{display:none}
+/* copy on the photo sits on soft cream cards so it stays readable over the skyline */
+.hero--v10 .hs-left,.hero--v10 .hs-right{background:rgba(254,254,241,.86);padding:18px 22px;border-radius:22px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.hero--v10 .chip-live{background:rgba(254,254,241,.9)}
+@media (max-width:960px){.hero--v10 .hs-right{background:transparent;padding:0;border-radius:0;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hero--v10 .hs-left{background:rgba(254,254,241,.9)}
+  .hero--v10 .hs-left .lead{color:var(--ink)}}
+@media (max-width:760px){.hero--v10{--photo-h:max(100svh,820px)}.hero-photo img{object-position:50% 40%}}
+@media (prefers-reduced-motion:reduce){.hero-photo img{animation:none;transform:none}}
+
+/* ---------- gooey blob buttons (the fill rises like four drops of paint) ---------- */
+.btn{isolation:isolate}
+.btn-blob{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:hidden;pointer-events:none}
+.btn-blob>span{position:absolute;inset:0;display:block;filter:url(#goo)}
+.btn-blob i{position:absolute;top:-25%;width:36%;height:150%;border-radius:50%;background:var(--bb,#5d403a);
+  transform:translateY(150%) scale(1.5);transition:transform .5s cubic-bezier(.25,1,.5,1)}
+.btn-blob i:nth-child(1){left:-6%}
+.btn-blob i:nth-child(2){left:22%;transition-delay:.07s}
+.btn-blob i:nth-child(3){left:50%;transition-delay:.14s}
+.btn-blob i:nth-child(4){left:78%;transition-delay:.21s}
+.btn:hover .btn-blob i,.btn:focus-visible .btn-blob i{transform:translateY(0) scale(1.5)}
+.btn-blue{--bb:#5d403a}
+.btn-blue:hover{background:var(--blue)}
+.btn-green{--bb:#fefef1}
+.btn-green:hover{background:var(--green);color:var(--deep)}
+.btn-line{--bb:#5d403a}
+.btn-line:hover{background:transparent;color:#fefef1}
+.btn-ghost{--bb:#fefef1}
+.btn-ghost:hover{background:transparent;color:var(--deep)}
+.hdr .btn-sm{--bb:#fefef1}
+@media (prefers-reduced-motion:reduce){.btn-blob i{transition:none}}
+.goo-defs{position:absolute;width:0;height:0;overflow:hidden}

@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Eliana Capital v13: editorial finish (loaded after v12.css)
+   - Fraunces serif for headlines (Outfit stays for body and UI)
+   - drawn botanical line art that grows in and drifts with scroll (js/v13.js)
+   - golden-hour light, sun glow and drifting pollen over the hero photo
+   - giant scroll-linked type band with a kitenge-inspired pattern strip
+   Remove the v13 links in tools/build.py layout() to go back to v12.
+   ========================================================================== */
+
+:root{--serif:var(--font);--gold:#f6c25a}
+
+/* ---------- 1. Typography ---------- */
+h1,h2,.cta h2{font-family:var(--serif);font-weight:400;font-variation-settings:"opsz" 144,"SOFT" 40;letter-spacing:-.022em;line-height:1.04}
+h1{letter-spacing:-.03em}
+h3{letter-spacing:-.015em}
+.hero--arch h1{line-height:1.0;font-weight:380}
+.hero--v10 h1 .swoosh{font-style:italic;color:var(--green-ink)}
+.big-num{font-family:var(--serif);font-weight:400}
+.label{letter-spacing:.02em}
+h2 em,h1 em{font-style:italic}
+
+/* ---------- 2. Hero: light, glow, pollen ---------- */
+.hero--v10 h1{margin-bottom:clamp(18px,3.2vw,44px)}
+.hero--v10 .hero-stage{margin-top:clamp(10px,2vw,28px)}
+.hero-photo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:soft-light;
+  background:radial-gradient(60% 55% at 56% 50%,rgba(255,196,96,.75),rgba(255,196,96,0) 70%)}
+.hero-sun{position:absolute;left:56%;top:50%;width:min(90vw,1100px);aspect-ratio:1;translate:-50% -50%;z-index:2;pointer-events:none;mix-blend-mode:screen;opacity:.55}
+.hero-sun::before{content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,226,150,.85),rgba(255,190,90,.25) 45%,rgba(255,190,90,0) 72%);animation:sunpulse 7s ease-in-out infinite}
+.hero-sun::after{content:"";position:absolute;inset:-20%;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,rgba(255,236,180,.30) 0 2.2deg,rgba(255,236,180,0) 2.2deg 11deg);
+  -webkit-mask-image:radial-gradient(closest-side,#000 8%,transparent 70%);mask-image:radial-gradient(closest-side,#000 8%,transparent 70%);
+  animation:rays 90s linear infinite}
+@keyframes sunpulse{50%{transform:scale(1.12);opacity:.82}}
+@keyframes rays{to{transform:rotate(360deg)}}
+.hero-dust{position:absolute;left:0;right:0;top:0;height:var(--photo-h);width:100%;z-index:0;pointer-events:none}
+.hero--v10 .hero-inner,.hero--v10 .arch-wrap{z-index:2}
+
+/* ---------- 3. Botanical line art ---------- */
+.botan{position:absolute;z-index:0;pointer-events:none;color:var(--green-ink);opacity:.5;
+  width:var(--bw,220px);aspect-ratio:var(--ar,1/2);translate:0 var(--py,0px);will-change:translate}
+.botan svg{display:block;width:100%;height:100%;overflow:visible}
+.botan path,.botan circle{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.botan .fl{fill:currentColor;fill-opacity:.07;stroke-width:1.2}
+.botan.is-blue{color:var(--blue);opacity:.32}
+.botan .dr{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.4s cubic-bezier(.3,.7,.2,1)}
+.botan.in .dr{stroke-dashoffset:0}
+.botan.in svg{animation:sway 9s ease-in-out infinite alternate;transform-origin:50% 100%}
+@keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.8deg)}}
+.has-botan{position:relative}
+@media (max-width:900px){.botan{--bw:130px;opacity:.38}}
+@media (max-width:560px){.botan.hide-s{display:none}}
+
+/* ---------- 4. Giant type band + pattern strip ---------- */
+.giant{position:relative;overflow:hidden;background:var(--paper);padding-block:clamp(10px,2vw,26px) clamp(14px,2.6vw,34px);user-select:none}
+.kente{height:clamp(30px,4vw,52px);background-repeat:repeat-x;background-size:auto 100%;opacity:.9}
+.giant-track{display:flex;width:max-content;white-space:nowrap;align-items:center;gap:clamp(18px,3vw,44px);padding-block:clamp(8px,1.6vw,22px);will-change:transform}
+.giant-track span{font-family:var(--serif);font-style:italic;font-weight:300;font-variation-settings:"opsz" 144,"SOFT" 100;
+  font-size:clamp(3.6rem,13vw,12rem);line-height:1;letter-spacing:-.03em;color:var(--blue)}
+.giant-track span:nth-of-type(even){color:transparent;-webkit-text-stroke:1.5px var(--green-ink);font-style:normal;font-weight:500}
+.giant-track i{flex:none;width:clamp(30px,5vw,70px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,var(--green) 0 18%,transparent 19% 34%,var(--blue) 35% 44%,transparent 45% 60%,var(--green-lite) 61% 100%)}
+@media (max-width:560px){.giant-track span{-webkit-text-stroke-width:1px}}
+
+/* ---------- 5. Small polish ---------- */
+.arches .pic,.arch{transition:transform .8s var(--ease),box-shadow .8s var(--ease)}
+.sec{scroll-margin-top:90px}
+::selection{background:var(--green-lite);color:var(--deep)}
+@media (prefers-reduced-motion:reduce){
+  .hero-sun::before,.hero-sun::after,.botan.in svg{animation:none}
+  .botan .dr{stroke-dashoffset:0;transition:none}
+  .hero-dust{display:none}
+}

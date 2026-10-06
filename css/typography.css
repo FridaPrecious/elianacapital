@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Sofia Pro type tuning (loaded last, on every page).
+   The headlines were sized for a narrow serif (Fraunces). Sofia Pro is wider with a taller x-height, so at the same
+   sizes it looked exaggerated. This file scales the display sizes down, loosens the very tight letter-spacing,
+   calms the wide mono-style labels and keeps weights from going too thin.
+   To make everything bigger or smaller again, change the numbers here (the "* .84" factors).
+   ========================================================================== */
+.h-tag{font-size:calc(clamp(1.05rem,1.9vw,1.6rem) * 0.92)}
+.h-display{font-size:calc(clamp(2.2rem,5vw,4.5rem) * 0.84);letter-spacing:-0.0113em;font-weight:400}
+.h-facts dd{font-size:calc(clamp(1.25rem,2.1vw,1.8rem) * 0.92)}
+.h-steps-list .n{font-size:calc(1.15rem * 0.92)}
+.h-steps-list h3{font-size:calc(clamp(1.15rem,1.7vw,1.45rem) * 0.92)}
+.h-prom h3{font-size:calc(clamp(1.25rem,1.9vw,1.6rem) * 0.92)}
+.h-story h3{font-size:calc(clamp(1.15rem,1.7vw,1.4rem) * 0.92)}
+.h-branches b{font-size:calc(clamp(1.5rem,2.6vw,2.2rem) * 0.92)}
+.h-sub{font-size:calc(clamp(1.4rem,2.2vw,1.9rem) * 0.92)}
+.h-display{font-size:calc(clamp(2.5rem,6vw,5.8rem) * 0.84);letter-spacing:-0.018em;font-weight:400}
+.h-lead{font-size:calc(clamp(1.3rem,2vw,1.85rem) * 0.92);letter-spacing:-0.0054em;font-weight:400}
+.h-intro .label,.h-cta .label{letter-spacing:0.104em}
+.h-facts dt{letter-spacing:0.091em}
+.h-facts dd{font-size:calc(clamp(1.8rem,3.2vw,3rem) * 0.84);letter-spacing:-0.0158em;font-weight:400}
+.h-facts small{letter-spacing:0.065em}
+.h-cta p{font-size:calc(clamp(1.2rem,1.8vw,1.6rem) * 0.92)}
+body .menu aside h2{letter-spacing:0.104em}
+h1,h2,.cta h2{letter-spacing:-0.0099em}
+.giant-track span{font-size:calc(clamp(3.6rem,13vw,12rem) * 0.84);letter-spacing:-0.0135em;font-weight:400}
+.h-time{letter-spacing:0.104em}
+.is-home .label{letter-spacing:0.104em}
+.is-home .h-lead{font-size:calc(clamp(1.3rem,2vw,1.85rem) * 0.92);letter-spacing:-0.0054em;font-weight:400}
+.h-receipt span{letter-spacing:0.091em}
+.h-receipt b{font-size:calc(clamp(1.2rem,1.9vw,1.7rem) * 0.92);letter-spacing:-0.009em;font-weight:400}
+.h-steps-list .n{letter-spacing:0.104em}
+.h-idx{letter-spacing:0.104em}
+.h-story .meta{letter-spacing:0.091em}
+.h-branches i{letter-spacing:0.104em}
+.h-branches span{letter-spacing:0.091em}
+.v-prog{letter-spacing:0.104em}
+.hs-vert{letter-spacing:0.117em}
+.hs-body .meta{letter-spacing:0.104em}
+.hs-body h3{font-size:calc(clamp(1.6rem,2.7vw,2.6rem) * 0.84);letter-spacing:-0.0135em;font-weight:400}
+.hp-tag{letter-spacing:0.104em}
+.hp-copy h3{font-size:calc(clamp(2.1rem,4.4vw,4rem) * 0.84);letter-spacing:-0.0158em;font-weight:400}
+body:not(.is-home) .phero .label{letter-spacing:0.104em}
+body:not(.is-home) .phero h1{font-size:calc(clamp(2.4rem,8.6vw,5.4rem) * 0.84);letter-spacing:-0.0158em;font-weight:400}
+body:not(.is-home) .phero .lead{font-size:calc(clamp(1.1rem,3.6vw,1.5rem) * 0.92);font-weight:400}
+body:not(.is-home) .sec .label{letter-spacing:0.104em}
+body:not(.is-home) .sec h2{font-size:calc(clamp(1.9rem,6.2vw,3.6rem) * 0.84);letter-spacing:-0.0135em;font-weight:400}
+body:not(.is-home) .sec .lead,body:not(.is-home) .sec .prose{font-size:calc(clamp(1.1rem,3.4vw,1.4rem) * 0.92);font-weight:400}
+body:not(.is-home) .sec .lead b{letter-spacing:0.104em}
+body:not(.is-home) blockquote.big{font-size:calc(clamp(1.9rem,7vw,4rem) * 0.84);font-weight:400}
+body:not(.is-home) blockquote.big cite,body:not(.is-home) blockquote.big cite span{letter-spacing:0.091em}
+body:not(.is-home) .stat .v{font-size:calc(clamp(2.4rem,9vw,4.4rem) * 0.84);letter-spacing:-0.018em;font-weight:400}
+body:not(.is-home) .stat dt{letter-spacing:0.091em}
+body:not(.is-home) .trust h3{font-size:calc(1.3rem * 0.92);letter-spacing:-0.00675em}
+body:not(.is-home) .spec dt{letter-spacing:0.091em}
+body:not(.is-home) .spec dd{font-size:calc(clamp(1.3rem,4.6vw,2rem) * 0.92);letter-spacing:-0.009em;font-weight:400}
+body:not(.is-home) .step h3{font-size:calc(clamp(1.5rem,5vw,2.4rem) * 0.92);letter-spacing:-0.0113em;font-weight:400}
+body:not(.is-home) .person h3{font-weight:400}
+body:not(.is-home) .cta h2{font-size:calc(clamp(2.2rem,8vw,4.6rem) * 0.84);letter-spacing:-0.0158em;font-weight:400}
+body .contact-card h2{font-size:calc(clamp(1.7rem,6vw,2.4rem) * 0.84);letter-spacing:-0.0135em;font-weight:400}
+body .contact-card .cc-row small{letter-spacing:0.091em}
+/* giant footer word and scrolling type band */
+.foot-word,body .foot-word{font-size:clamp(4rem,19vw,17rem);letter-spacing:-.03em;line-height:.9}
+.giant-track span{font-size:clamp(3rem,10vw,9rem);letter-spacing:-.015em}
+.h-cta .h-display,.h-cta .h-display--xxl{font-size:clamp(2.2rem,5vw,4.8rem);line-height:1}
+.is-home .h-display--xl,.h-intro .h-display--xl{font-size:clamp(2.4rem,5.8vw,5.8rem)}
+em{letter-spacing:inherit}
+/* "Ready when you are." stays on one line on larger screens (it used to be capped at 12 characters wide) */
+.h-cta .h-display,.h-cta .h-display--xxl{max-width:none}
+@media (min-width:641px){.h-cta .h-display{white-space:nowrap}}

@@ -1,0 +1,18 @@
+/* Eliana Capital v17: finishing layer (home page). Progress line, hero depth, staged entrance. */
+.v17-bar{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--green,#5fa052),#f2c55c);z-index:60;pointer-events:none;opacity:calc(min(1,var(--p,0) * 40))}
+/* hero layers drift against each other with the pointer (set by js/v17.js) */
+.h-hero-bg .h-sky{translate:calc(-50% + var(--px,0) * -14px) calc(-42% + var(--py,0) * -8px)}
+.h-hero-brand .h-logo-wrap{translate:calc(var(--px,0) * 8px) calc(var(--py,0) * 5px);transition:translate .6s cubic-bezier(.2,.7,.2,1)}
+/* staged entrance: tagline arrives with the sun, then the cue */
+.js .h-tag{opacity:0;filter:blur(8px);letter-spacing:.14em;transition:opacity 1.4s ease 2.6s,filter 1.4s ease 2.6s,letter-spacing 2.4s cubic-bezier(.2,.7,.2,1) 2.6s}
+.js.v17-in .h-tag{opacity:1;filter:blur(0);letter-spacing:.01em}
+.js .h-cue,.js .h-time{opacity:0;transition:opacity 1s ease 4.2s}
+.js.v17-in .h-cue,.js.v17-in .h-time{opacity:1}
+/* the glass of every story and callout lifts slightly as the pointer passes */
+.h-call{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease}
+.h-call:hover{transform:translateY(-4px)}
+@media (prefers-reduced-motion:reduce){
+  .js .h-tag,.js .h-cue,.js .h-time{opacity:1;filter:none;letter-spacing:.01em;transition:none}
+  .h-hero-brand .h-logo-wrap{translate:none}
+}
+@media (hover:none){.h-hero-brand .h-logo-wrap{translate:none}}

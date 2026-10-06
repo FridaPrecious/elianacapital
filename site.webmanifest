@@ -1,0 +1,14 @@
+{
+  "name": "Eliana Capital",
+  "short_name": "Eliana",
+  "description": "Credit that empowers, never traps. Responsible working-capital loans for Kenya's small businesses.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fefdf3",
+  "theme_color": "#fefdf3",
+  "icons": [
+    { "src": "favicon/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "favicon/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
