@@ -85,7 +85,7 @@
       g.textAlign = "right"; g.fillStyle = "#fff"; g.font = "500 42px " + F; g.fillText("KES 500", 930, y + 2); g.textAlign = "left";
     });
     g.fillStyle = "#5fa052"; rrect(g, 56, 1810, 912, 150, 75); g.fill();
-    g.fillStyle = "#00014f"; g.font = "600 56px " + F; g.textAlign = "center"; g.fillText("Apply for support", 512, 1886); g.textAlign = "left";
+    g.fillStyle = "#00014f"; g.font = "600 56px " + F; g.textAlign = "center"; g.fillText("Apply now", 512, 1886); g.textAlign = "left";
     g.fillStyle = "rgba(255,255,255,.85)"; rrect(g, 352, 2020, 320, 12, 6); g.fill();
     screenTex.needsUpdate = true;
   }

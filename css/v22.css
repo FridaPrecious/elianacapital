@@ -1,0 +1,163 @@
+/* ==========================================================================
+   v22  (loaded after v21 on every page)
+   1  footer: the sticky "footer reveal" is gone. The page and footer scroll normally; the footer keeps
+      its own separate card under the Ready-when-you-are block.
+   2  numbers: one count-up stat style (big figure + unit + label), used in the loan section,
+      "Who we are" and "Who you are dealing with"
+   3  loan section: no icons on the notes, branches added to the stat strip
+   4  "Who you are dealing with": sticky company plate + scroll-linked numbered ledger
+   ========================================================================== */
+
+/* ---------- 1  footer and CTA ---------- */
+html.foot-reveal main,
+html main{position:static;z-index:auto;border-radius:0}
+html.foot-reveal .foot{position:relative;bottom:auto;z-index:auto}
+.h-cta{
+  border-radius:var(--hr) var(--hr) 0 0;
+  padding-bottom:clamp(90px,9.5vw,150px);   /* room for the phone's shadow so it never touches the footer */
+}
+
+/* ---------- 2  count-up numbers (Mantracare-style: big figure, small unit, label under) ---------- */
+.stat-n{
+  display:flex;align-items:baseline;gap:.14em;margin:0;
+  font-weight:500;line-height:1;letter-spacing:-.045em;color:var(--blue);
+  font-size:clamp(2.8rem,5.6vw,5rem);
+  font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1;
+}
+.num{display:inline-block;position:relative}
+/* the loan-size line keeps its final width so "to" and the second figure do not wobble while the digits climb */
+.loan-v .num::after{content:attr(data-final);display:block;height:0;overflow:hidden;visibility:hidden;pointer-events:none}
+.stat-n .u{font-size:.34em;font-weight:600;letter-spacing:-.01em;color:var(--blue);align-self:flex-start;margin-top:.28em;opacity:.9}
+.stat-n .u--base{align-self:baseline;margin-top:0}
+.stat-l{margin:.9rem 0 0;font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-ink)}
+.stat-s{margin:.35rem 0 0;font-size:.98rem;line-height:1.45;color:var(--slate);max-width:26ch}
+
+/* ---------- 3  loan section ---------- */
+.loan-v .num{font-variant-numeric:tabular-nums}
+.loan-grid{grid-template-columns:minmax(0,1fr);align-items:start;padding-block:clamp(24px,3.4vw,40px)}
+.loan-aside{margin:1.1rem 0 0;color:var(--slate);font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.5;max-width:52ch}
+.loan-aside b{color:var(--navy-ink);font-weight:600}
+.loan-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0;padding:0;list-style:none;border-bottom:1px solid var(--line)}
+.loan-stats li{display:block;padding:clamp(22px,2.6vw,34px) clamp(14px,2vw,30px);border-top:0;border-left:1px solid var(--line)}
+.loan-stats li:first-child{border-left:0;padding-left:0}
+.loan-stats .stat-n{font-size:clamp(2.6rem,4.8vw,4.4rem)}
+.loan-notes{margin-top:clamp(22px,2.8vw,34px);gap:0 clamp(24px,4vw,64px)}
+.loan-notes li{padding:16px 0 0;border-top:1px solid var(--line);color:var(--slate)}
+.loan-notes li::before{display:none}
+@media (max-width:860px){
+  .loan-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .loan-stats li:nth-child(odd){border-left:0;padding-left:0}
+  .loan-stats li:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* "Who we are" fact: same number style, a notch smaller */
+.h-facts .stat-n{font-size:clamp(2.2rem,3.6vw,3.2rem)}
+.h-facts dd .stat-n{display:inline-flex;vertical-align:baseline}
+.h-facts .fact-tail{display:inline-block;margin-left:.5em;color:var(--slate)}
+
+/* ---------- 4  who you are dealing with ---------- */
+.trust-band{background:var(--offwhite);padding-block:clamp(80px,10vw,150px)}
+.trust-wrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.3fr);gap:clamp(36px,6vw,110px);align-items:start}
+.trust-side{position:sticky;top:clamp(96px,13vh,150px)}
+.trust-side h2{max-width:14ch;margin-bottom:clamp(22px,3vw,36px)}
+
+/* the "company plate": one dark object that gives the section weight and a quiet 3D tilt */
+.trust-plate{
+  --rx:0deg;--ry:0deg;--gx:50%;--gy:0%;
+  position:relative;overflow:hidden;color:#e8eaff;
+  padding:clamp(22px,2.6vw,34px);border-radius:24px;
+  background:radial-gradient(120% 90% at var(--gx) var(--gy),rgba(120,130,255,.38),transparent 55%),linear-gradient(165deg,#0a0e86 0,#010395 38%,#0b1030 100%);
+  box-shadow:0 40px 70px -40px rgba(1,3,149,.65),0 1px 0 rgba(255,255,255,.12) inset;
+  transform:perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);will-change:transform;
+}
+.trust-plate.is-tilting{transition:transform .08s linear}
+.trust-plate .stat-n{color:#fff;font-size:clamp(3.4rem,6vw,5.6rem)}
+.trust-plate .stat-n .u{color:#c9ccff}
+.trust-plate .stat-l{color:#c9ccff;margin-top:1rem}
+.trust-plate .stat-s{color:#c9ccff;opacity:.9;max-width:34ch}
+.trust-plate hr{border:0;height:1px;background:rgba(255,255,255,.16);margin:clamp(18px,2.2vw,26px) 0}
+.trust-co{margin:0;font-size:.95rem;line-height:1.6;color:#c9ccff}
+.trust-co b{display:block;color:#fff;font-weight:600;font-size:1.05rem;margin-bottom:.25rem}
+.trust-co a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.4);text-underline-offset:3px}
+.trust-co a:hover{text-decoration-color:#fff}
+.trust-co span{display:block}
+
+/* the ledger: numbered rows on hairlines, scroll-linked focus and a progress rail */
+.trust-list{--p:0;position:relative;list-style:none;margin:0;padding:0 0 0 clamp(18px,2vw,30px)}
+.trust-list::before,.trust-list::after{content:"";position:absolute;left:0;top:0;width:2px;border-radius:2px}
+.trust-list::before{bottom:0;background:var(--line)}
+.trust-list::after{height:100%;background:var(--blue);transform-origin:0 0;transform:scaleY(var(--p))}
+.trow{position:relative;border-top:1px solid var(--line)}
+.trow:last-child{border-bottom:1px solid var(--line)}
+.trow a{
+  position:relative;display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto;column-gap:clamp(12px,1.8vw,26px);align-items:start;
+  padding:clamp(24px,2.8vw,38px) 4px;text-decoration:none;color:inherit;
+}
+.trow a::after{ /* the hairline that sweeps in under the active row */
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--blue);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.tr-i{font-variant-numeric:tabular-nums;font-weight:600;font-size:.9rem;letter-spacing:.1em;color:var(--slate-lite);padding-top:.7em;transition:color .35s}
+.tr-b b{display:block;font-weight:500;font-size:clamp(1.4rem,1.15rem + 1vw,2.1rem);line-height:1.12;letter-spacing:-.025em;color:var(--slate);transition:color .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.tr-b span{display:block;margin-top:.6rem;max-width:46ch;color:var(--slate);font-size:1rem;line-height:1.55}
+.tr-t{align-self:start;margin-top:.5em;padding:.4em .85em;border:1px solid var(--line);border-radius:999px;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);white-space:nowrap;transition:background .35s,color .35s,border-color .35s}
+.trow.is-active .tr-i{color:var(--blue)}
+.trow.is-active .tr-b b{color:var(--navy-ink);transform:translateX(6px)}
+.trow.is-active .tr-t{background:var(--blue);border-color:var(--blue);color:#fff}
+.trow.is-active a::after{transform:scaleX(1)}
+.trow a:focus-visible{outline:2px solid var(--blue);outline-offset:-2px;border-radius:12px}
+
+/* rows rise in as the list scrolls into view */
+html.js .trow{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+html.js .trow.is-in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .trust-wrap{grid-template-columns:minmax(0,1fr)}
+  .trust-side{position:static}
+  .trust-side h2{max-width:20ch}
+}
+@media (max-width:560px){
+  .trow a{grid-template-columns:2.2rem minmax(0,1fr)}
+  .tr-t{grid-column:2;justify-self:start;margin-top:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html.js .trow{opacity:1;transform:none;transition:none}
+  .trust-plate,.trow a::after,.tr-b b{transition:none}
+}
+
+@media (max-width:860px){.loan-notes li:first-child{border-top:0;padding-top:0}}
+
+/* phones: the sticky bar at the bottom already carries Apply now, so the repeats mid-page go.
+   The hero and the final "Ready when you are" block keep theirs. */
+@media (max-width:759px){
+  #loan .btn-row .btn-blue,#intro .btn-row .btn-blue{display:none}
+}
+
+/* ---------- map pins: the Eliana mark instead of the blue dot ----------
+   a white map-pin whose tip sits exactly on the branch; the active branch turns green with a white mark */
+.leaflet-marker-icon .branch-pin{
+  position:relative;display:block;width:44px;height:46px;
+  background:none;border:0;box-shadow:none;border-radius:0;
+  transform-origin:50% 100%;transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.leaflet-marker-icon .branch-pin::before{
+  content:"";position:absolute;left:3px;top:0;width:38px;height:38px;
+  background:#fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+  box-shadow:0 8px 18px rgba(1,3,149,.38),0 0 0 2px rgba(1,3,149,.14);
+  transition:background .3s,box-shadow .3s;
+}
+.leaflet-marker-icon .branch-pin::after{
+  content:"";position:absolute;left:9px;top:6px;width:26px;height:26px;
+  background:url("../assets/logo-mark.svg") center/contain no-repeat;
+}
+.leaflet-marker-icon .branch-pin.active,.leaflet-marker-icon .branch-pin.is-active{
+  background:none;transform:scale(1.22);
+}
+.leaflet-marker-icon .branch-pin.active::before,.leaflet-marker-icon .branch-pin.is-active::before{
+  background:#5fa052;box-shadow:0 10px 22px rgba(95,160,82,.5),0 0 0 3px rgba(95,160,82,.22);
+}
+.leaflet-marker-icon .branch-pin.active::after,.leaflet-marker-icon .branch-pin.is-active::after{
+  background-image:url("../assets/logo-mark-white.svg");
+}
+@media (prefers-reduced-motion:reduce){.leaflet-marker-icon .branch-pin,.leaflet-marker-icon .branch-pin::before{transition:none}}

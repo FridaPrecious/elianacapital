@@ -95,7 +95,7 @@
     chips.forEach(function (c) { g.font = "500 38px " + F; var w = g.measureText(c).width + 90; g.fillStyle = "rgba(255,255,255,.12)"; rrect(g, x, 1262, w, 96, 48); g.fill(); g.fillStyle = "#7fd06e"; g.beginPath(); g.arc(x + 42, 1310, 11, 0, 7); g.fill(); g.fillStyle = "#fff"; g.fillText(c, x + 66, 1311); x += w + 18; });
     g.fillStyle = "rgba(255,255,255,.09)"; rrect(g, 56, 1420, 912, 250, 48); g.fill();
     g.fillStyle = "rgba(255,255,255,.7)"; g.font = "400 38px " + F; g.fillText("Decision target", 100, 1494); g.fillStyle = "#fff"; g.font = "500 64px " + F; g.fillText("2 hours", 100, 1576); g.fillStyle = "rgba(255,255,255,.7)"; g.font = "400 34px " + F; g.fillText("on a complete application", 100, 1636);
-    g.fillStyle = "#5fa052"; rrect(g, 56, 1780, 912, 150, 75); g.fill(); g.fillStyle = "#00014f"; g.font = "600 56px " + F; g.textAlign = "center"; g.fillText("Apply for support", 512, 1856); g.textAlign = "left";
+    g.fillStyle = "#5fa052"; rrect(g, 56, 1780, 912, 150, 75); g.fill(); g.fillStyle = "#00014f"; g.font = "600 56px " + F; g.textAlign = "center"; g.fillText("Apply now", 512, 1856); g.textAlign = "left";
     tex[0].needsUpdate = true;
   }
   function drawB() { /* the price, before you accept */

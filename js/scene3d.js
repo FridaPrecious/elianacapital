@@ -126,14 +126,13 @@
     ring1.rotation.x = 1.15; ring2.rotation.set(.5, .9, 0); logo.add(ring1, ring2);
 
     var orbs = new T.Group(); scene.add(orbs);
-    [{ c: 0x5fa052, r: .46, p: [0.3, 2.85, -1.6], d: .2 }, { c: 0x2328ff, r: .66, p: [3.2, -2.3, -2.2], d: .16 }, { c: 0xd8daf4, r: .3, p: [1.3, 2.7, -.4], d: .24 },
-     { c: 0x5fa052, r: .22, p: [-1.4, -2.5, 1.2], d: .28 }, { c: 0x8f94ff, r: .36, p: [5.0, 1.8, -3], d: .2 }].forEach(function (o, i) {
+    [{ c: 0x2328ff, r: .66, p: [3.2, -2.3, -2.2], d: .16 }, { c: 0x5fa052, r: .22, p: [-1.4, -2.5, 1.2], d: .28 }].forEach(function (o, i) {
       var m = new T.MeshPhysicalMaterial({ color: o.c, roughness: .12, metalness: .1, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1.5 });
       distort(m, o.d);
       var mesh = new T.Mesh(new T.SphereGeometry(o.r, 64, 64), m); mesh.position.set(o.p[0], o.p[1], o.p[2]);
       mesh.userData = { base: mesh.position.clone(), ph: i * 1.7, mat: m }; orbs.add(mesh);
     });
-    var dustA = sparkles(520, 0xc9ccff, .05, 22, 12, 12), dustB = sparkles(140, 0x7fd070, .075, 20, 11, 10);
+    var dustA = sparkles(160, 0xc9ccff, .05, 22, 12, 12), dustB = sparkles(40, 0x7fd070, .075, 20, 11, 10);
     scene.add(dustA, dustB);
 
     var st = { tx: 0, ty: 0, px: 0, py: 0, on: true }, W = 1, H = 1, view = { w: 11, h: 7 };

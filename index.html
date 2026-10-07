@@ -218,7 +218,7 @@
            Branch & map styles
            ───────────────────────────────────────────────────────────── */
         .bx-wrap { position: relative; }
-        .bx-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-bottom: clamp(1.5rem, 2.5vw, 2.1rem); }
+        .bx-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
         .bx-head h2 { margin: 0; max-width: 22ch; }
         .bx-head p.bx-kicker { margin: 0 0 .4rem; color: rgba(1, 3, 149, .68); font-size: .95rem; max-width: 32ch; }
 
@@ -269,6 +269,28 @@
             color: #010395;
             opacity: .65;
         }
+        .branch-hours { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .6rem; padding: 0; }
+        .branch-hours span { font-size: .74rem; font-weight: 500; color: #010395; background: rgba(1,3,149,.06); border-radius: 99px; padding: .2rem .65rem; letter-spacing: .02em; }
+        .branch-contact { display: flex; gap: .5rem; margin: 0 0 .6rem; }
+        .branch-contact .bc-btn {
+            display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%;
+            background: #010395; color: #fff; text-decoration: none;
+            transition: transform .35s cubic-bezier(.22,1,.36,1), background .3s;
+        }
+        .branch-contact .bc-btn svg { width: 50%; height: 50%; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .branch-contact .bc-btn svg.fill { fill: currentColor; stroke: none; width: 56%; height: 56%; }
+        .branch-contact .bc-btn.bc-wa { background: #25d366; }
+        .branch-contact .bc-btn:hover, .branch-contact .bc-btn:focus-visible { transform: translateY(-2px) scale(1.08); background: #5fa052; outline: none; }
+        .trust-co .trust-ic { display: flex; gap: .6rem; margin-top: .35rem; }
+        .trust-co .trust-ic-a {
+            display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%;
+            background: rgba(255,255,255,.14); color: #fff; border: 0; text-decoration: none;
+            transition: background .3s, color .3s, transform .35s cubic-bezier(.22,1,.36,1);
+        }
+        .trust-co .trust-ic-a svg { width: 52%; height: 52%; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .trust-co .trust-ic-a:hover, .trust-co .trust-ic-a:focus-visible { background: #5fa052; transform: translateY(-2px) scale(1.06); outline: none; }
+        .branch-count[role="button"].is-link { cursor: pointer; }
+        .branch-count[role="button"].is-link:hover { background: rgba(1,3,149,.1); color: #010395; }
         .branch-count {
             font-family: "Sofia Pro", "Outfit", system-ui, sans-serif;
             font-size: .72rem;
@@ -330,21 +352,6 @@
         }
 
         .branch-head { display: flex; align-items: center; gap: .7rem; margin-bottom: .35rem; }
-        .branch-status {
-            width: 8px; height: 8px; border-radius: 50%;
-            background: #5fa052; position: relative; flex-shrink: 0;
-        }
-        .branch-status::after {
-            content: '';
-            position: absolute; inset: -3px; border-radius: 50%;
-            background: #5fa052; opacity: .45;
-            animation: branchPulse 2.2s ease-out infinite;
-        }
-        @keyframes branchPulse {
-            0% { transform: scale(1); opacity: .45; }
-            100% { transform: scale(2.4); opacity: 0; }
-        }
-
         .branch-name { font-weight: 600; color: #010395; font-size: 1.02rem; letter-spacing: -.01em; margin: 0; }
         .branch-tag {
             font-family: "Sofia Pro", "Outfit", system-ui, sans-serif;
@@ -406,8 +413,6 @@
 
         /* ─────────────────────────────────────────────────────────────
            ADVISORY — Light Faded Blue
-           (vertical padding tightened so it doesn't crowd the
-            following "What we offer" section)
            ───────────────────────────────────────────────────────────── */
         .advisory-radical {
             position: relative;
@@ -421,7 +426,7 @@
                     #f5f7fd 88%,
                     #ffffff 100%);
             color: #010395;
-            padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(3rem, 4.5vw, 4.5rem);
+            padding: 10rem 0 12rem;
             overflow: hidden;
             isolation: isolate;
         }
@@ -466,7 +471,7 @@
 
         .advisory-radical .container { position: relative; z-index: 2; }
 
-        .advisory-radical__head { max-width: 800px; margin-bottom: clamp(2.5rem, 4vw, 3.5rem); }
+        .advisory-radical__head { max-width: 800px; margin-bottom: 6rem; }
 
         .advisory-radical__label {
             font-family: "Sofia Pro", "Outfit", system-ui, sans-serif;
@@ -477,7 +482,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
         .advisory-radical__label::before {
             content: ''; width: 40px; height: 1px; background: #5fa052;
@@ -544,7 +549,7 @@
             position: relative;
             width: clamp(180px, 20vw, 260px);
             height: clamp(180px, 20vw, 260px);
-            margin-bottom: 1.6rem;
+            margin-bottom: 2rem;
             perspective: 1000px;
         }
 
@@ -659,7 +664,7 @@
             font-size: 1.5rem;
             font-weight: 500;
             color: #010395;
-            margin: 0 0 0.4rem;
+            margin: 0 0 0.5rem;
             letter-spacing: -0.02em;
             transition: color 0.4s ease;
         }
@@ -671,13 +676,13 @@
             text-transform: uppercase;
             letter-spacing: 0.18em;
             color: rgba(1, 3, 149, 0.55);
-            margin: 0 0 1rem;
+            margin: 0 0 1.25rem;
             font-weight: 500;
         }
 
         .orb-bio {
             font-size: 0.95rem;
-            line-height: 1.65;
+            line-height: 1.7;
             color: rgba(1, 3, 149, 0.68);
             margin: 0;
             transition: color 0.4s ease;
@@ -698,7 +703,7 @@
         @media (max-width: 1024px) {
             .advisory-constellation {
                 grid-template-columns: 1fr 1fr;
-                gap: 2.5rem;
+                gap: 3rem;
             }
             .advisor-orb:nth-child(1) {
                 grid-column: 1;
@@ -708,12 +713,12 @@
             .advisor-orb:nth-child(2) {
                 grid-column: 2;
                 grid-row: 1;
-                margin-top: 2.5rem;
+                margin-top: 3rem;
             }
             .advisor-orb:nth-child(3) {
                 grid-column: 1 / -1;
                 grid-row: 2;
-                margin-top: 1.5rem;
+                margin-top: 2rem;
                 max-width: 400px;
                 margin-left: auto;
                 margin-right: auto;
@@ -723,11 +728,11 @@
 
         /* Mobile: single column — reset grid-row so orbs don't stack in the same cell */
         @media (max-width: 768px) {
-            .advisory-radical { padding: 4rem 0 3.25rem; }
-            .advisory-radical__head { margin-bottom: 2.75rem; }
+            .advisory-radical { padding: 6rem 0 8rem; }
+            .advisory-radical__head { margin-bottom: 4rem; }
             .advisory-constellation {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 4rem;
             }
             .advisor-orb:nth-child(1),
             .advisor-orb:nth-child(2),
@@ -744,7 +749,6 @@
 
         /* ─────────────────────────────────────────────────────────────
            FAQ — Light Faded Blue
-           (vertical padding tightened)
            ───────────────────────────────────────────────────────────── */
         .faq-radical {
             position: relative;
@@ -758,7 +762,7 @@
                     #f5f7fd 88%,
                     #ffffff 100%);
             color: #010395;
-            padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(4rem, 6vw, 6rem);
+            padding: 10rem 0 12rem;
             overflow: hidden;
             isolation: isolate;
         }
@@ -791,7 +795,7 @@
         .faq-radical__grid {
             display: grid;
             grid-template-columns: 1fr 1.4fr;
-            gap: clamp(3rem, 5vw, 4.5rem);
+            gap: 6rem;
             align-items: start;
             position: relative;
             z-index: 1;
@@ -808,7 +812,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
         .faq-radical__label::before {
             content: ''; width: 40px; height: 1px; background: #5fa052;
@@ -820,7 +824,7 @@
             font-weight: 400;
             line-height: 1.08;
             letter-spacing: -0.02em;
-            margin: 0 0 1.2rem;
+            margin: 0 0 1.5rem;
             color: #010395;
         }
         .faq-radical__title em {
@@ -840,8 +844,8 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
+            margin-top: 2.5rem;
+            padding-top: 1.75rem;
             border-top: 1px solid rgba(1, 3, 149, 0.10);
             max-width: 260px;
         }
@@ -1072,7 +1076,7 @@
         .faq-card__ans strong { color: #5fa052; font-weight: 600; }
 
         @media (max-width: 1024px) {
-            .faq-radical__grid { grid-template-columns: 1fr; gap: 2.75rem; }
+            .faq-radical__grid { grid-template-columns: 1fr; gap: 4rem; }
             .faq-radical__intro { position: static; }
             .faq-radical__list::before { display: none; }
         }
@@ -1085,29 +1089,9 @@
             .faq-card:hover { transform: none; }
             .faq-card[open] { transform: none; }
         }
-
-        /* ─────────────────────────────────────────────────────────────
-           GLOBAL VERTICAL RHYTHM
-           Tightens the standard `.sec` sections so the page reads as
-           one continuous flow instead of isolated blocks.
-           ───────────────────────────────────────────────────────────── */
-        .sec {
-            padding-top: clamp(3.25rem, 5.5vw, 5rem);
-            padding-bottom: clamp(3.25rem, 5.5vw, 5rem);
-        }
-
-        .sec-head {
-            margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
-        }
-
-        @media (max-width: 768px) {
-            .sec {
-                padding-top: 2.75rem;
-                padding-bottom: 2.75rem;
-            }
-            .sec-head { margin-bottom: 1.75rem; }
-        }
     </style>
+<link rel="stylesheet" href="css/v21.css">
+<link rel="stylesheet" href="css/v22.css">
 </head>
 <body>
 <script>document.documentElement.classList.add("js")</script>
@@ -1119,7 +1103,8 @@
 </defs></svg>
 <header class="hdr"><div class="container">
 <a class="logo " href="index.html" aria-label="Eliana Capital, home"><img class="logo-on-dark" src="assets/logo-white.svg" alt="Eliana Capital, we grow together" width="134" height="46"><img class="logo-on-light" src="assets/logo-color.svg" alt="" width="134" height="46" aria-hidden="true"></a>
-<div class="hdr-right"><a class="btn btn-sm" href="contact.html#apply">Apply for support</a>
+<nav class="hdr-nav" aria-label="Primary"><a href="about.html">About</a><a href="services.html">Loans</a><a href="how-it-works.html">How it works</a><a href="customer-stories.html">Stories</a><a href="faqs.html">FAQs</a></nav>
+<div class="hdr-right"><a class="btn btn-sm" href="contact.html#apply">Apply now</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span>Menu</span><i></i></button></div>
 </div></header>
 <nav class="menu" id="menu" aria-label="Main">
@@ -1135,13 +1120,26 @@
 <div class="container hero-inner">
 <h1><span class="ln"><span>Credit should</span></span><span class="ln"><span>empower,</span></span><span class="ln"><span>never trap.</span></span></h1>
 <p class="lead">Working capital for market traders, tailors, shopkeepers and small business owners across Kenya. Honest prices, shown before you say yes.</p>
-<div class="btn-row"><a class="btn btn-green" href="contact.html#apply">Apply for support</a><a class="btn btn-ghost" href="contact.html#callback">Request a call back</a></div>
+<div class="btn-row"><a class="btn btn-green" href="contact.html#apply">Apply now</a><a class="btn btn-ghost" href="contact.html#callback">Talk to us</a></div>
 </div>
-<div class="container"><dl class="hero-facts">
-<div><dt>Loan size</dt><dd>KES 5,000 to 15,000</dd></div>
-<div><dt>Repay over</dt><dd>Up to 30 days, daily</dd></div>
-<div><dt>Decision target</dt><dd>2 hours on complete applications</dd></div>
-</dl></div></section>
+</section>
+
+<section class="loan" id="loan" data-rail="The loan">
+<div class="container">
+<div class="loan-head"><p class="label">The loan</p><h2>Imaarika working-capital loan</h2><p class="loan-sub">For stock, supplies or a short gap in cash flow. Priced in plain words, shown before you say yes.</p></div>
+<div class="loan-grid">
+<div class="loan-amount"><span class="loan-k">Loan size</span><b class="loan-v" role="text" aria-label="KES 5,000 to 15,000"><small>KES</small> <span class="num" data-num="5000">5,000</span> <i>to</i> <span class="num" data-num="15000">15,000</span></b>
+<p class="loan-aside">Repaid in <b>daily instalments</b>, with the full schedule shown before you accept.</p></div>
+</div>
+<ul class="loan-stats" aria-label="The loan at a glance">
+<li><p class="stat-n"><span class="num" data-num="7">7</span><span class="u">+ HQ</span></p><p class="stat-l">Branches</p><p class="stat-s">Plus our head office in Nairobi</p></li>
+<li><p class="stat-n"><span class="num" data-num="30">30</span><span class="u u--base">days</span></p><p class="stat-l">Repay within</p><p class="stat-s">Up to 30 days, in daily instalments</p></li>
+<li><p class="stat-n"><span class="num" data-num="2">2</span><span class="u u--base">hrs</span></p><p class="stat-l">Decision target</p><p class="stat-s">On complete applications</p></li>
+<li><p class="stat-n"><span class="num" data-num="100">100</span><span class="u u--base">%</span></p><p class="stat-l">Priced openly</p><p class="stat-s">Pricing shown before you accept</p></li>
+</ul>
+<ul class="loan-notes"><li>Local officers who know your market, on systems that settle by mobile money.</li><li>Repay early without punitive charges. A good record earns faster access next time.</li></ul>
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="services.html">Learn how it works</a></div>
+</div></section>
 
 <section class="h-sec h-intro" id="intro" data-rail="Who we are"><div class="container h-split">
 <div class="h-slot h-slot--side" data-phone="intro" data-screen="0" data-yaw="16" aria-hidden="true"></div>
@@ -1150,11 +1148,10 @@
 
 <p class="h-lead">Eliana Capital is a female-owned, female-run Kenyan microfinance lender. We pair digital speed with local relationships and disciplined credit, so people can act on opportunity, build resilient businesses and grow with dignity.</p>
 <dl class="h-facts">
-<div><dt>Branch network</dt><dd class="is-list">Nairobi, Kawangware, Utawala, Thika, Ruiru, Kajiado, Ugunja, Kitale</dd></div>
-<div><dt>Target turnaround</dt><dd><span data-count="2">2</span> hrs on complete applications</dd></div>
-<div><dt>Pricing disclosed</dt><dd><span data-count="100">100</span>% before you accept</dd></div>
+<div><dt>Branch network</dt><dd class="is-list">Kawangware, Utawala, Thika, Ruiru, Kajiado, Ugunja, Kitale</dd></div>
+<div><dt>Pricing disclosed</dt><dd><span class="stat-n"><span class="num" data-num="100">100</span><span class="u u--base">%</span></span><span class="fact-tail">before you accept</span></dd></div>
 </dl>
-<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a><a class="btn btn-line" href="about.html">About us</a></div>
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="about.html">About us</a></div>
 </div></div></section>
 
 <!-- ─────────────────────────────────────────────────────────────
@@ -1262,39 +1259,37 @@
     </div>
 </section>
 
-<section class="sec sec--mist" id="offer" data-rail="What we offer">
-<div class="container">
-<div class="sec-head"><p class="label">What we offer</p><h2>One loan priced in plain words.</h2></div>
-<div class="split"><ul class="svc-list"><li class="svc" tabindex="0"><h3>Imaarika working-capital loan</h3><p>KES 5,000 to 15,000 for stock, supplies or a short gap in cash flow, repaid in daily instalments over up to 30 days.</p><a href="services.html">See the loan in full</a></li><li class="svc" tabindex="0"><h3>Branch feet, digital rails</h3><p>Officers who know your market, working on systems that settle by mobile money.</p></li><li class="svc" tabindex="0"><h3>Rewards for good repayers</h3><p>Repay early without punitive charges. A good repayment record earns faster access next time.</p></li></ul>
-<div class="stage" aria-hidden="false">
-<svg class="scene" viewBox="0 0 480 600" role="img" aria-label="Three bars rising from KES 5,000 to KES 15,000, topped with a sprout, over a market trader smiling at her stall"><defs><linearGradient id="sh1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".85"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".68"/><stop offset="1" stop-color="#ffffff" stop-opacity=".9"/></linearGradient></defs>
-<rect width="480" height="600" fill="#ffffff"/><image class="bg" href="assets/offer-1.jpg" x="-20" y="-20" width="520" height="650" preserveAspectRatio="xMidYMid slice"/><rect width="480" height="600" fill="url(#sh1)"/>
-<rect x="70" y="350" width="100" height="130" rx="18" fill="#5fa052" fill-opacity=".45"/><rect x="190" y="270" width="100" height="210" rx="18" fill="#5fa052" fill-opacity=".72"/><rect x="310" y="170" width="100" height="310" rx="18" fill="#5fa052"/>
-<g fill="#010395" font-size="21" font-weight="600" text-anchor="middle"><text x="120" y="520">5,000</text><text x="240" y="520">10,000</text><text x="360" y="520">15,000</text></g>
-<text x="70" y="90" fill="#010395" font-size="26" font-weight="500">Imaarika, in KES</text>
-<g transform="translate(360 170)"><path d="M0 0 V-46" stroke="#5fa052" stroke-width="7" stroke-linecap="round"/><path d="M0 -30 C-34 -34 -44 -62 -40 -76 C-14 -76 0 -58 0 -30Z" fill="#5fa052"/><path d="M0 -40 C30 -42 42 -66 38 -82 C14 -80 0 -64 0 -40Z" fill="#010395"/></g></svg>
-<svg class="scene" viewBox="0 0 480 600" role="img" aria-label="Branch locations including Kawangware, Utawala and Thika connected to a mobile phone, over the Nairobi skyline at sunset"><defs><linearGradient id="sh3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".85"/><stop offset=".6" stop-color="#ffffff" stop-opacity=".68"/><stop offset="1" stop-color="#ffffff" stop-opacity=".9"/></linearGradient></defs>
-<rect width="480" height="600" fill="#ffffff"/><image class="bg" href="assets/offer-3.jpg" x="-20" y="-20" width="520" height="650" preserveAspectRatio="xMidYMid slice"/><rect width="480" height="600" fill="url(#sh3)"/>
-<g stroke="#010395" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round" fill="none" opacity=".9"><path d="M96 150 Q170 230 210 280"/><path d="M96 450 Q170 380 210 330"/><path d="M400 120 Q330 210 285 270"/></g>
-<g fill="#5fa052"><circle cx="96" cy="150" r="22"/><circle cx="96" cy="450" r="22"/><circle cx="400" cy="120" r="22"/></g><g fill="#fff"><circle cx="96" cy="150" r="8"/><circle cx="96" cy="450" r="8"/><circle cx="400" cy="120" r="8"/></g>
-<g fill="#010395" font-size="18" font-weight="600" style="paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:4px"><text x="126" y="157">Kawangware</text><text x="126" y="457">Utawala</text><text x="300" y="100">Thika</text></g>
-<rect x="195" y="230" width="100" height="190" rx="20" fill="#010395" stroke="#fff" stroke-opacity=".7" stroke-width="3"/><rect x="205" y="250" width="80" height="140" rx="8" fill="#fff"/><circle cx="245" cy="406" r="6" fill="rgba(255,255,255,.75)"/>
-<rect x="215" y="268" width="60" height="10" rx="5" fill="rgba(1,3,149,.18)"/><rect x="215" y="290" width="40" height="10" rx="5" fill="rgba(1,3,149,.18)"/><rect x="215" y="322" width="60" height="42" rx="10" fill="#5fa052"/></svg>
-<svg class="scene" viewBox="0 0 480 600" role="img" aria-label="Steps climbing upward, one step per loan, over a field being harvested"><defs><linearGradient id="sh4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".85"/><stop offset=".5" stop-color="#ffffff" stop-opacity=".68"/><stop offset="1" stop-color="#ffffff" stop-opacity=".9"/></linearGradient></defs>
-<rect width="480" height="600" fill="#ffffff"/><image class="bg" href="assets/offer-4.jpg" x="-20" y="-20" width="520" height="650" preserveAspectRatio="xMidYMid slice"/><rect width="480" height="600" fill="url(#sh4)"/>
-<rect x="60" y="400" width="90" height="120" rx="14" fill="#5fa052" fill-opacity=".45"/><rect x="160" y="340" width="90" height="180" rx="14" fill="#5fa052" fill-opacity=".72"/><rect x="260" y="270" width="90" height="250" rx="14" fill="#5fa052"/><rect x="360" y="190" width="70" height="330" rx="14" fill="#010395"/>
-<g stroke="#5fa052" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round" fill="none"><path d="M105 370 Q140 300 205 310"/><path d="M205 310 Q250 250 305 240"/><path d="M305 240 Q340 170 395 160"/></g>
-<circle cx="395" cy="150" r="22" fill="#5fa052"/><path d="M384 150 l8 9 l16 -19" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="60" y="80" fill="#010395" font-size="26" font-weight="500">Each good repayment</text><text x="60" y="112" fill="rgba(1,3,149,.72)" font-size="22">opens the next door faster</text></svg>
-</div></div>
-</div></section>
 
 <section class="sec" id="price" data-rail="Pricing">
 <div class="container grid-2 price-grid" style="align-items:center">
 <div><p class="label">Pricing</p><h2>Know the price before you say yes.</h2>
 <p class="lead" style="margin-top:1.2rem">We state the fee, the interest and any penalties up front, in plain words. If a number is not on your agreement, we do not charge it.</p>
-<div class="btn-row" style="margin-top:1.6rem"><a class="btn btn-blue" href="how-it-works.html">See how it works</a><a class="btn btn-line" href="faqs.html">Read the FAQs</a></div></div>
+<div class="btn-row" style="margin-top:1.6rem"><a class="btn btn-blue" href="how-it-works.html">Learn how it works</a><a class="btn btn-line" href="faqs.html">Read the FAQs</a></div></div>
 <div class="h-slot h-slot--price" data-phone="loan" data-screen="1" data-yaw="-12" aria-hidden="true"></div>
+</div></section>
+
+<section class="trust-band" id="trust" data-rail="Who we are">
+<div class="container trust-wrap">
+<div class="trust-side">
+<p class="label">Who you are dealing with</p>
+<h2>Clear about who we are and how we lend.</h2>
+<div class="trust-plate" data-plate>
+<p class="stat-n"><span class="num" data-num="7">7</span><span class="u">+ HQ</span></p>
+<p class="stat-l">Branches across Kenya</p>
+<p class="stat-s">Kawangware, Utawala, Thika, Ruiru, Kajiado, Ugunja and Kitale, plus our head office in Nairobi.</p>
+<hr>
+<p class="trust-co"><b>Eliana Capital Limited</b><span>Head office: #2B St. Andrews Towers, off State House Road, Nairobi</span><span class="trust-ic"><a class="trust-ic-a" href="tel:+254118888801" aria-label="Call us on +254 118 888801" title="Call us"><svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="trust-ic-a" href="mailto:info@eliana-capital.com" aria-label="Email info@eliana-capital.com" title="Email us"><svg viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a></span></p>
+<!-- TODO(Eliana): add company registration number and regulatory/licensing details here once confirmed. Not invented on purpose. -->
+</div>
+</div>
+<ol class="trust-list" data-ledger>
+<li class="trow"><a href="faqs.html"><span class="tr-i">01</span><span class="tr-b"><b>Transparent pricing</b><span>Fee, interest and penalties stated up front. If it is not on your agreement, we do not charge it.</span></span><span class="tr-t">Before you accept</span></a></li>
+<li class="trow"><a href="how-it-works.html"><span class="tr-i">02</span><span class="tr-b"><b>Repayment, explained</b><span>Daily instalments over up to 30 days, with the full schedule shown before you accept.</span></span><span class="tr-t">Up to 30 days</span></a></li>
+<li class="trow"><a href="privacy.html"><span class="tr-i">03</span><span class="tr-b"><b>Privacy and data protection</b><span>How we collect, use and protect your information.</span></span><span class="tr-t">Your data</span></a></li>
+<li class="trow"><a href="contact.html#complaint"><span class="tr-i">04</span><span class="tr-b"><b>Complaints and support</b><span>Not happy? Tell us and we will put it right.</span></span><span class="tr-t">We put it right</span></a></li>
+<li class="trow"><a href="branches.html"><span class="tr-i">05</span><span class="tr-b"><b>Seven branches and a head office</b><span>Kawangware, Utawala, Thika, Ruiru, Kajiado, Ugunja and Kitale.</span></span><span class="tr-t">7 + HQ</span></a></li>
+<li class="trow"><a href="terms.html"><span class="tr-i">06</span><span class="tr-b"><b>Terms and conditions</b><span>The full terms, in plain language.</span></span><span class="tr-t">Plain language</span></a></li>
+</ol>
 </div></section>
 
 <section class="sec sec--night dark" id="values" data-rail="How we work">
@@ -1321,87 +1316,95 @@
             <aside class="branch-panel" aria-label="Eliana Capital branches">
                 <div class="branch-panel-head">
                     <span class="branch-panel-title">Branches</span>
-                    <span class="branch-count">8 locations</span>
+                    <span class="branch-count" id="branchCount" tabindex="-1">8 locations</span>
                 </div>
 
                 <ul class="branch-list">
-                    <li class="branch-item active" data-branch="kawangware" tabindex="0" role="button" aria-pressed="true">
+                    <li class="branch-item" data-branch="kawangware" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Kawangware</h3>
                             <span class="branch-tag">Branch</span>
                         </div>
-                        <p class="branch-desc">Main market area, opposite the stage. Walk-in support, daily.</p>
+                        <p class="branch-desc">Main market area, opposite the stage.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=-1.2755,36.7552" target="_blank" rel="noopener">Get directions</a>
                     </li>
 
                     <li class="branch-item" data-branch="utawala" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Utawala</h3>
                             <span class="branch-tag">Branch</span>
                         </div>
-                        <p class="branch-desc">Off the Eastern Bypass, near the shopping centre. Walk-in support, daily.</p>
+                        <p class="branch-desc">Off the Eastern Bypass, near the shopping centre.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=-1.2935,36.9558" target="_blank" rel="noopener">Get directions</a>
                     </li>
 
                     <li class="branch-item" data-branch="thika" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Thika</h3>
                             <span class="branch-tag">Branch</span>
                         </div>
-                        <p class="branch-desc">Town centre, along Kenyatta Highway. Walk-in support, daily.</p>
+                        <p class="branch-desc">Town centre, along Kenyatta Highway.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=-1.0333,37.0667" target="_blank" rel="noopener">Get directions</a>
                     </li>
 
                     <li class="branch-item" data-branch="ruiru" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Ruiru</h3>
                             <span class="branch-tag">Branch</span>
                         </div>
                         <p class="branch-desc">Town centre branch. Call or WhatsApp us to confirm opening hours.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=-1.1459,36.96" target="_blank" rel="noopener">Get directions</a>
                     </li>
 
                     <li class="branch-item" data-branch="kajiado" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Kajiado</h3>
                             <span class="branch-tag">Branch</span>
                         </div>
                         <p class="branch-desc">Town centre branch. Call or WhatsApp us to confirm opening hours.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=-1.8524,36.7768" target="_blank" rel="noopener">Get directions</a>
                     </li>
 
                     <li class="branch-item" data-branch="ugunja" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Ugunja</h3>
                             <span class="branch-tag">Branch</span>
                         </div>
                         <p class="branch-desc">Town centre branch. Call or WhatsApp us to confirm opening hours.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=0.2,34.28" target="_blank" rel="noopener">Get directions</a>
                     </li>
 
                     <li class="branch-item" data-branch="kitale" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Kitale</h3>
                             <span class="branch-tag">Branch</span>
                         </div>
                         <p class="branch-desc">Town centre branch. Call or WhatsApp us to confirm opening hours.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=1.0191,35.002" target="_blank" rel="noopener">Get directions</a>
                     </li>
 
                     <li class="branch-item" data-branch="nairobi" tabindex="0" role="button" aria-pressed="false">
                         <div class="branch-head">
-                            <span class="branch-status" aria-hidden="true"></span>
                             <h3 class="branch-name">Nairobi</h3>
                             <span class="branch-tag hq">Head office</span>
                         </div>
-                        <p class="branch-desc">#2B St. Andrews Towers, off State House Road. Head office, Monday to Friday.</p>
+                        <p class="branch-desc">#2B St. Andrews Towers, off State House Road. Head office.</p>
+                        <p class="branch-hours"><span>Mon &ndash; Fri</span><span>8am &ndash; 5pm</span></p>
+                        <div class="branch-contact"><a class="bc-btn" href="tel:+254118888801" aria-label="Call us today" title="Call us today"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a class="bc-btn" href="mailto:info@eliana-capital.com" aria-label="Send us an email" title="Send us an email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a><a class="bc-btn bc-wa" href="https://wa.me/254118888801" target="_blank" rel="noopener" aria-label="Chat with us today on WhatsApp" title="Chat with us today"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
                         <a class="branch-link" href="https://www.google.com/maps/search/?api=1&query=%232B%20St.%20Andrews%20Towers%2C%20off%20State%20House%20Road%2C%20Nairobi%2C%20Kenya" target="_blank" rel="noopener">Get directions</a>
                     </li>
                 </ul>
@@ -1411,7 +1414,7 @@
     </div>
 </section>
 
-<section class="sec sec--leaf">
+<section class="sec sec--leaf" id="stories" data-rail="Customer stories">
 <div class="container">
 <div class="sec-head"><p class="label">Customer stories</p><h2>Real people. Real businesses. Told with dignity.</h2></div>
 <div class="photos"><figure class="photo has-img " data-tilt><img src="assets/tailor.jpg" alt="A dressmaker smiling as she checks her phone at her sewing machine, surrounded by colourful fabrics" loading="lazy" style="object-position:72% 35%"><figcaption>Dressmakers and tailors</figcaption><a class="photo-link" href="story-dressmaker.html" aria-label="Read the story: Dressmakers and tailors"><span>Read story</span></a></figure><figure class="photo has-img " data-tilt><img src="assets/shop.jpg" alt="A roadside seller in a bright blue top smiling at her phone beside bowls of groundnuts" loading="lazy" style="object-position:50% 30%"><figcaption>Market and roadside sellers</figcaption><a class="photo-link" href="story-market-seller.html" aria-label="Read the story: Market and roadside sellers"><span>Read story</span></a></figure><figure class="photo has-img " data-tilt><img src="assets/farmers.jpg" alt="Women and men harvesting sugarcane together in a field at golden hour" loading="lazy" style="object-position:74% 55%"><figcaption>Farmers and farm workers</figcaption><a class="photo-link" href="story-farmers.html" aria-label="Read the story: Farmers and farm workers"><span>Read story</span></a></figure></div>
@@ -1515,7 +1518,7 @@
 
 <section class="h-cta" id="apply-now"><div class="container h-cta-grid">
 <div class="h-cta-copy"><h2 class="h-display h-display--xxl" data-split>Ready when <em>you are.</em></h2><p>Tell us about your business. We will take it from there.</p>
-<div class="btn-row"><a class="btn btn-green" href="contact.html#apply">Apply for support</a><a class="btn btn-ghost" href="contact.html#callback">Request a call back</a></div></div>
+<div class="btn-row"><a class="btn btn-green" href="contact.html#apply">Apply now</a><a class="btn btn-ghost" href="contact.html#callback">Talk to us</a></div></div>
 <div class="h-slot h-slot--cta" data-phone="cta" data-screen="2" data-yaw="12" aria-hidden="true"></div>
 </div></section>
 </main>
@@ -1608,7 +1611,7 @@
         scrollWheelZoom: false,
         zoomControl: true,
         attributionControl: true,
-        minZoom: 7,
+        minZoom: 6,
         maxZoom: 18
     });
 
@@ -1621,9 +1624,9 @@
         return L.divIcon({
             className: '',
             html: '<span class="branch-pin' + (active ? ' active' : '') + '"></span>',
-            iconSize: [18, 18],
-            iconAnchor: [9, 9],
-            popupAnchor: [0, -12]
+            iconSize: [44, 46],
+            iconAnchor: [22, 46],
+            popupAnchor: [0, -50]
         });
     }
 
@@ -1642,61 +1645,104 @@
     });
 
     let currentId = null;
+    const countEl = document.getElementById('branchCount');
+    const allBounds = L.latLngBounds(branches.map((b) => b.coords));
 
-    function activate(id, { fly = true } = {}) {
-        if (!markers[id]) return;
-        currentId = id;
+    function fitAll(animate) {
+        map.fitBounds(allBounds, { padding: [48, 48], maxZoom: 9, animate: !!animate, duration: 1.1 });
+    }
 
+    function setItems(id) {
         items.forEach((el) => {
             const on = el.dataset.branch === id;
             el.classList.toggle('active', on);
             el.setAttribute('aria-pressed', on ? 'true' : 'false');
         });
+    }
+
+    function setCount(selected) {
+        if (!countEl) return;
+        if (selected) {
+            countEl.textContent = '\u2190 Show all ' + branches.length;
+            countEl.setAttribute('role', 'button');
+            countEl.setAttribute('tabindex', '0');
+            countEl.classList.add('is-link');
+        } else {
+            countEl.textContent = branches.length + ' locations';
+            countEl.removeAttribute('role');
+            countEl.setAttribute('tabindex', '-1');
+            countEl.classList.remove('is-link');
+        }
+    }
+
+    // Everything on the map, nothing selected
+    function showAll(animate) {
+        currentId = null;
+        setItems(null);
+        setCount(false);
+        map.closePopup();
+        Object.keys(markers).forEach((k) => {
+            markers[k].setIcon(makeIcon(false));
+            if (!map.hasLayer(markers[k])) markers[k].addTo(map);
+        });
+        fitAll(animate);
+    }
+
+    // Only the chosen branch on the map
+    function activate(id, { fly = true } = {}) {
+        if (!markers[id]) return;
+        currentId = id;
+        setItems(id);
+        setCount(true);
 
         Object.keys(markers).forEach((k) => {
-            markers[k].setIcon(makeIcon(k === id));
+            if (k === id) {
+                if (!map.hasLayer(markers[k])) markers[k].addTo(map);
+                markers[k].setIcon(makeIcon(true));
+            } else if (map.hasLayer(markers[k])) {
+                map.removeLayer(markers[k]);
+            }
         });
 
         const b = branches.find((x) => x.id === id);
         if (fly) {
             map.flyTo(b.coords, b.zoom, { duration: 1.1, easeLinearity: 0.25 });
-            window.setTimeout(() => markers[id].openPopup(), 700);
+            window.setTimeout(() => { if (currentId === id) markers[id].openPopup(); }, 700);
         }
     }
 
     items.forEach((el) => {
         el.addEventListener('click', (e) => {
-            if (e.target.closest('.branch-link')) return;
+            if (e.target.closest('.branch-link, .branch-contact')) return;
+            if (currentId === el.dataset.branch) { showAll(true); return; }
             activate(el.dataset.branch);
         });
         el.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
+                if (currentId === el.dataset.branch) { showAll(true); return; }
                 activate(el.dataset.branch);
             }
         });
     });
 
     Object.keys(markers).forEach((id) => {
-        markers[id].on('click', () => {
-            currentId = id;
-            items.forEach((el) => {
-                const on = el.dataset.branch === id;
-                el.classList.toggle('active', on);
-                el.setAttribute('aria-pressed', on ? 'true' : 'false');
-            });
-            Object.keys(markers).forEach((k) => markers[k].setIcon(makeIcon(k === id)));
-        });
+        markers[id].on('click', () => activate(id, { fly: false }));
     });
 
-    const isDesktop = window.matchMedia('(min-width: 901px)').matches;
-    if (isDesktop && items.length) {
-        window.setTimeout(() => activate(items[0].dataset.branch), 500);
+    if (countEl) {
+        countEl.addEventListener('click', () => { if (currentId) showAll(true); });
+        countEl.addEventListener('keydown', (e) => {
+            if ((e.key === 'Enter' || e.key === ' ') && currentId) { e.preventDefault(); showAll(true); }
+        });
     }
 
-    window.addEventListener('load', () => setTimeout(() => map.invalidateSize(), 250));
+    // Start with every branch visible
+    showAll(false);
+
+    window.addEventListener('load', () => setTimeout(() => { map.invalidateSize(); if (!currentId) fitAll(false); }, 250));
     if ('ResizeObserver' in window) {
-        new ResizeObserver(() => map.invalidateSize()).observe(mapEl);
+        new ResizeObserver(() => { map.invalidateSize(); if (!currentId) fitAll(false); }).observe(mapEl);
     }
 })();
 
@@ -1813,6 +1859,8 @@
     paint();
 })();
 </script>
+<script src="js/v22.js"></script>
 <script src="js/cookies.js"></script>
+<div class="m-bar" role="region" aria-label="Quick actions"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="m-wa" href="https://wa.me/254118888801" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.78a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41"/></svg><span>WhatsApp</span></a></div>
 </body>
 </html>

@@ -285,7 +285,7 @@ def layout(fname, title, desc, hero, body, gl=True, home=False):
 <!-- ── Header & menu ───────────────────────────────────────────────── -->
 {companion}<header class="hdr"><div class="container">
 {LOGO}
-<div class="hdr-right"><a class="btn btn-sm" href="contact.html#apply">Apply for support</a>
+<div class="hdr-right"><a class="btn btn-sm" href="contact.html#apply">Apply now</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span>Menu</span><i></i></button></div>
 </div></header>
 <nav class="menu" id="menu" aria-label="Main">
@@ -460,7 +460,7 @@ STACK_TAGS = [
     ["Early repayment welcome", "Faster access next time"],
 ]
 STACK_CTA = [("See the loan in full", "services.html"), ("Read the questions people ask", "faqs.html"),
-             ("Request a call back", "contact.html#callback"), ("Apply for support", "contact.html#apply")]
+             ("Talk to us", "contact.html#callback"), ("Apply now", "contact.html#apply")]
 
 
 def stack_cards():
@@ -490,7 +490,7 @@ def build_home():
 <div class="hs-left"><p class="lead">Working capital for market traders, tailors, shopkeepers and small business owners across Kenya. Honest prices, shown before you say yes.</p></div>
 <div class="hero-slot" data-mk-theme="light" aria-hidden="true"><span class="hero-word">grow</span><i class="rp rp1"></i><i class="rp rp2"></i><i class="rp rp3"></i>
 <span class="orbit o1">Paid by mobile money</span><span class="orbit o2">Small daily instalments</span><span class="orbit o3">Women entrepreneurs welcome</span></div>
-<div class="hs-right"><div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a><a class="btn btn-line" href="contact.html#callback">Request a call back</a></div>
+<div class="hs-right"><div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="contact.html#callback">Request a call back</a></div>
 <p class="hs-note">No hidden charges. You see the full price first.</p></div>
 </div>
 </div>
@@ -538,7 +538,7 @@ def build_home():
 <div class="container grid-2" style="align-items:center">
 <div><p class="label">Pricing</p><h2>Know the price before you say yes.</h2>
 <p class="lead" style="margin-top:1.2rem">We state the fee, the interest and any penalties up front, in plain words. If a number is not on your agreement, we do not charge it.</p>
-<div class="btn-row" style="margin-top:1.6rem"><a class="btn btn-blue" href="how-it-works.html">See how it works</a><a class="btn btn-line" href="faqs.html">Read the FAQs</a></div></div>
+<div class="btn-row" style="margin-top:1.6rem"><a class="btn btn-blue" href="how-it-works.html">Learn how it works</a><a class="btn btn-line" href="faqs.html">Read the FAQs</a></div></div>
 <div class="rc-wrap"><div class="mk-slot mk-slot--sticker" data-mk-stop data-mk-theme="light" aria-hidden="true"></div><div class="receipt" role="group" aria-label="Example of what is shown before you accept">
 <h3>Your Imaarika loan</h3><p class="sub">What you see before you accept</p>
 <dl><div class="row"><dt>Loan size</dt><dd>KES 5,000 to 15,000</dd></div>
@@ -585,7 +585,7 @@ def build_home():
 <p style="margin-top:1.6rem"><a class="btn btn-line" href="faqs.html">All questions</a></p></div></div></section>
 
 <section class="cta cta--mk sec--green"><div class="container wrap"><div class="cta-copy"><h2>Ready when you are.</h2>
-<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a><a class="btn btn-line" href="contact.html#callback">Talk to us</a></div></div><div class="mk-slot mk-slot--cta" data-mk-stop data-mk-theme="green" aria-hidden="true"></div></div></section>"""
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="contact.html#callback">Talk to us</a></div></div><div class="mk-slot mk-slot--cta" data-mk-stop data-mk-theme="green" aria-hidden="true"></div></div></section>"""
     layout("index.html", "Eliana Capital | Credit that empowers, never traps",
            "Eliana Capital is a Kenyan digital microfinance lender offering responsible working-capital loans of KES 5,000 to 15,000 with prices shown up front.",
            hero, body, gl=True)
@@ -633,7 +633,7 @@ def build_about():
 </div></div></section>
 
 <section class="cta sec--green"><canvas data-scene="wave" aria-hidden="true"></canvas><div class="container wrap"><h2>Let us grow together.</h2>
-<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a><a class="btn btn-line" href="contact.html#callback">Talk to us</a></div></div></section>"""
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="contact.html#callback">Talk to us</a></div></div></section>"""
     layout("about.html", "About us | Eliana Capital",
            "Eliana Capital is a female-owned, female-run Kenyan microfinance lender. Learn our mission, our values and the people behind the name.",
            hero, body)
@@ -646,7 +646,7 @@ def build_services():
 <section class="sec"><div class="container grid-2">
 <div><p class="label">The loan at a glance</p><h2>Everything you need to decide, in one place.</h2>
 <p class="lead" style="margin-top:1.2rem">Before you accept, we confirm each of these with you in plain words.</p>
-<div class="btn-row" style="margin-top:1.6rem"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a></div></div>
+<div class="btn-row" style="margin-top:1.6rem"><a class="btn btn-blue" href="contact.html#apply">Apply now</a></div></div>
 <dl class="spec">
 <div><dt>Loan size</dt><dd>KES 5,000 to 15,000</dd></div>
 <div><dt>Repay over</dt><dd>Up to 30 days<small>In daily instalments</small></dd></div>
@@ -672,7 +672,7 @@ def build_services():
 </div></section>
 
 <section class="cta sec--green"><canvas data-scene="wave" aria-hidden="true"></canvas><div class="container wrap"><h2>See if Imaarika fits your business.</h2>
-<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a><a class="btn btn-line" href="contact.html#callback">Request a call back</a></div></div></section>"""
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="contact.html#callback">Request a call back</a></div></div></section>"""
     layout("services.html", "Our services | Eliana Capital",
            "Imaarika working-capital loans from Eliana Capital: KES 5,000 to 15,000, up to 30 days, with fees and interest explained before you accept.",
            hero, body)
@@ -696,7 +696,7 @@ def build_how():
 <p class="lead">Good repayment earns faster access to your next loan. That is how one loan becomes a relationship, and how we grow together.</p></div>
 <div class="container" style="margin-top:clamp(36px,5vw,72px)">""" + pic("shop.jpg", "A roadside seller smiling at her phone with bowls of groundnuts in front of her", "", "50% 35%", "photo--banner") + """</div></section>
 <section class="cta sec--green"><canvas data-scene="wave" aria-hidden="true"></canvas><div class="container wrap"><h2>Start with a conversation.</h2>
-<div class="btn-row"><a class="btn btn-blue" href="contact.html#callback">Request a call back</a><a class="btn btn-line" href="contact.html#apply">Apply for support</a></div></div></section>"""
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#callback">Request a call back</a><a class="btn btn-line" href="contact.html#apply">Apply now</a></div></div></section>"""
     layout("how-it-works.html", "How it works | Eliana Capital",
            "How to get an Eliana Capital loan: talk to us, apply, get checked, see the full price, then receive and repay by mobile money.",
            hero, body)
@@ -757,7 +757,7 @@ def build_stories():
 <ul class="story-list">{rows}</ul></div>
 <div class="story-preview" aria-hidden="true">{prev}</div></section>
 <section class="cta sec--green"><canvas data-scene="wave" aria-hidden="true"></canvas><div class="container wrap"><h2>Your business could be next.</h2>
-<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a><a class="btn btn-line" href="contact.html#callback">Talk to us</a></div></div></section>"""
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="contact.html#callback">Talk to us</a></div></div></section>"""
     layout("customer-stories.html", "Customer stories | Eliana Capital",
            "Stories from small business owners growing with Eliana Capital.", hero, body)
 
@@ -774,7 +774,7 @@ def build_story_pages():
 <h2>How the loan helps</h2>
 <p class="lead">{STORY_COPY[href][1]}</p>
 <p class="lead">{STORY_COPY[href][2]}</p>
-<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply for support</a><a class="btn btn-line" href="customer-stories.html">All stories</a></div>
+<div class="btn-row"><a class="btn btn-blue" href="contact.html#apply">Apply now</a><a class="btn btn-line" href="customer-stories.html">All stories</a></div>
 </div></div></section>
 <section class="sec sec--mist"><div class="container"><div class="story-nav">
 <a href="{prv[4]}"><small>Previous story</small><b>{prv[5]}</b></a><a href="{nxt[4]}"><small>Next story</small><b>{nxt[5]}</b></a></div></div></section>"""
@@ -803,7 +803,7 @@ def form_fields(kind):
     elif kind == "apply":
         mid = (name + phone + '<div class="field-row"><div class="field"><label for="biz-apply">Your business</label><input id="biz-apply" name="business" placeholder="e.g. vegetable stall"></div>'
                '<div class="field"><label for="amt-apply">How much do you need? <span class="hint">KES 5,000 to 15,000</span></label><input id="amt-apply" name="amount" type="number" min="5000" max="15000" step="500" inputmode="numeric" required></div></div>' + branch)
-        btn = "Apply for support"
+        btn = "Apply now"
     else:
         mid = (name + phone + branch + '<div class="field"><label for="m-complaint">What happened?</label><textarea id="m-complaint" name="message" required></textarea></div>')
         btn = "Send complaint"
@@ -819,7 +819,7 @@ def build_contact():
                      ("complaint", "We are sorry we let you down. Tell us what happened and we will look into it.")]:
         forms += f'<form class="form" id="{k}" role="tabpanel" aria-labelledby="t-{k}-tab" data-form novalidate><p>{intro}</p>{form_fields(k)}</form>'
     tabs = "".join(f'<button type="button" role="tab" id="t-{k}-tab" aria-controls="{k}" aria-selected="false">{t}</button>'
-                   for k, t in [("callback", "Request a call back"), ("apply", "Apply for support"), ("complaint", "Make a complaint")])
+                   for k, t in [("callback", "Request a call back"), ("apply", "Apply now"), ("complaint", "Make a complaint")])
     body = f"""
 <section class="sec"><div class="container grid-2 contact-grid">
 <div><div class="tabs" role="tablist" aria-label="How can we help?">{tabs}</div>{forms}

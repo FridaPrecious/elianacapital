@@ -136,8 +136,8 @@
     }, 1100);
   });
 
-  /* ---------- 7. Footer reveal (Motion UI): the page lifts away to uncover the footer ---------- */
+  /* ---------- 7. Footer: normal scroll (the sticky reveal was removed) ---------- */
   var foot = $(".foot");
-  function footMode() { if (!foot) return; document.documentElement.classList.toggle("foot-reveal", window.innerWidth > 900 && foot.offsetHeight < window.innerHeight * .88); }
+  function footMode() { /* the sticky footer reveal was removed: it pinned the footer under the page before you reached it */ document.documentElement.classList.remove("foot-reveal"); }
   footMode(); window.addEventListener("resize", footMode); window.addEventListener("load", footMode);
 })();

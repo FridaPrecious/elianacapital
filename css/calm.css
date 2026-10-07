@@ -1,0 +1,46 @@
+/* ============================================================
+   Calm palette (v26) - less blue, more breathing room
+   Blue stays in: the logo and the hero / page banners.
+   Everything else moves to warm neutrals, ink and forest green.
+   Delete this file (and its <link>) to go back to the old look.
+   ============================================================ */
+:root{
+  --ink:#15201a; --body:#404a43; --line:rgba(21,32,26,.14);
+  --paper:#fbfaf6; --mist:#f3f2ec; --lav:#e7e9de; --leaf:#edf3e4;
+  --night:#0d3b2a; --deep:#08241a;
+}
+
+/* keep the hero + page banners as the single blue moment */
+.hero,.phero{background:radial-gradient(120% 90% at 78% 8%,#06089f 0%,#00014f 48%,#000138 100%)}
+.curtain{background:#00014f}
+.hdr{--logo-cut:#00014f}
+.menu-open .hdr,.menu-open .hdr.is-solid{--logo-cut:var(--night)}
+
+/* buttons */
+.btn-blue{background:var(--ink);color:#fff}
+.btn-blue:hover{background:var(--forest,#0d3b2a)}
+
+/* text that was blue */
+.branch-name,.branch-link,.branch-panel-title,.branch-tag.hq,.stat .v,.offer h3,.sec h3{color:var(--ink)}
+.bx-kicker,.branch-desc{color:rgba(21,32,26,.68)}
+.branch-link:hover{color:var(--green-ink)}
+.branch-tag.hq{background:rgba(95,160,82,.14);color:var(--green-ink)}
+.label{color:var(--green-ink)}
+.dark .label,.label--light{color:var(--green-lite)}
+
+/* big blue surfaces -> forest */
+.sec--night{background:var(--night);color:#d4e2d6}
+.h-cta{background:linear-gradient(160deg,#0d3b2a 0%,#0f4a33 52%,#14432c 100%)}
+.foot{background:#08241a;color:#c5d6c8}
+.ck-in{background:linear-gradient(180deg,#14432c 0%,#0d3b2a 60%,#08241a 100%);box-shadow:0 24px 60px -18px rgba(8,36,26,.55),0 0 0 1px rgba(255,255,255,.1)}
+.panel.p1{background:#14432c}
+
+/* page tints: lavender -> warm neutral */
+body{background:var(--paper)}
+.sec--mist{background:var(--mist)}
+.blob{background:var(--mist)}
+
+/* side dots + misc blue accents */
+.rail a i{border-color:var(--ink)}
+.rail a.is-on i{border-color:var(--green)}
+.rail a span,.hdr.is-solid{box-shadow:0 4px 14px rgba(21,32,26,.15)}

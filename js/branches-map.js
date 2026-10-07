@@ -34,9 +34,9 @@
         return L.divIcon({
             className: '',
             html: '<span class="branch-pin' + (active ? ' active' : '') + '"></span>',
-            iconSize: [18, 18],
-            iconAnchor: [9, 9],
-            popupAnchor: [0, -12]
+            iconSize: [44, 46],
+            iconAnchor: [22, 46],
+            popupAnchor: [0, -50]
         });
     }
 
