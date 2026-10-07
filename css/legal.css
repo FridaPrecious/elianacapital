@@ -1,0 +1,24 @@
+/* Privacy notice styling (v22) */
+.legal-wrap{padding-block:clamp(40px,6vw,96px)}
+.legal{max-width:880px;margin-inline:auto;counter-reset:lg;display:grid;gap:clamp(14px,1.8vw,22px)}
+.legal>section{counter-increment:lg;position:relative;background:#fff;border:1px solid rgba(1,3,149,.09);border-radius:var(--r-lg,28px);
+  padding:clamp(24px,3.2vw,44px) clamp(22px,3.4vw,48px) clamp(24px,3.2vw,44px) clamp(22px,3.4vw,48px);
+  box-shadow:0 30px 60px -44px rgba(1,3,149,.35);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s ease}
+.legal>section:hover{transform:translateY(-3px);box-shadow:0 38px 70px -40px rgba(1,3,149,.4)}
+.legal>section::before{content:counter(lg,decimal-leading-zero);display:block;margin-bottom:.9rem;
+  font:500 .72rem/1 "Sofia Pro","Outfit",system-ui,sans-serif;letter-spacing:.2em;color:#5fa052}
+.legal>section::after{content:"";position:absolute;left:0;top:clamp(24px,3.2vw,44px);width:3px;height:34px;border-radius:0 3px 3px 0;background:linear-gradient(#5fa052,#010395)}
+.legal h2,.legal h2 em,.legal h2 em.ac{font-style:normal !important;font-weight:400;letter-spacing:-.02em;color:#010395;
+  font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.12;margin:0 0 .9rem}
+.legal p,.legal li{font-size:clamp(1rem,1.15vw,1.08rem);line-height:1.7;color:#2c3256;max-width:68ch}
+.legal p{margin:0 0 .8rem}.legal p:last-child{margin-bottom:0}
+.legal ul{list-style:none;margin:.2rem 0 0;padding:0;display:grid;gap:.6rem}
+.legal li{position:relative;padding-left:1.7rem}
+.legal li::before{content:"";position:absolute;left:0;top:.62em;width:.62rem;height:.62rem;border-radius:50%;background:#5fa052;box-shadow:0 0 0 4px rgba(95,160,82,.16)}
+.legal a{color:#010395;text-decoration:underline;text-decoration-color:rgba(95,160,82,.7);text-underline-offset:3px;text-decoration-thickness:2px}
+.legal a:hover{color:#5fa052}
+.legal strong{color:#010395;font-weight:600}
+.legal em{font-style:normal}
+.legal-note{max-width:880px;margin:clamp(18px,2.4vw,30px) auto 0;font-size:.9rem;color:#4a5078}
+@media (max-width:600px){.legal>section::after{height:26px}}
+@media (prefers-reduced-motion:reduce){.legal>section,.legal>section:hover{transition:none;transform:none}}

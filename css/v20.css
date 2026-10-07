@@ -1,0 +1,55 @@
+/* ==========================================================================
+   v20 (loaded last on every page)
+   1. "Our belief" quote on About: the person's name is a small attribution line, clearly smaller than the quote.
+   2. One typeface everywhere: Sofia Pro (Outfit only as the stand-in until the font files are in assets/fonts).
+   ========================================================================== */
+
+/* ---- 1. quote + attribution ---- */
+blockquote.big .q-text{display:block;margin:0}
+blockquote.big .q-text span{opacity:.16;transition:opacity .35s}
+blockquote.big .q-text span.on{opacity:1}
+body blockquote.big .q-by{
+  display:block;margin:clamp(14px,2vw,22px) 0 0;
+  font-family:var(--font);font-style:normal;font-weight:400;
+  font-size:clamp(.9rem,.82rem + .3vw,1.05rem);   /* fixed, small: never scales with the quote */
+  line-height:1.4;letter-spacing:.01em;text-transform:none;
+  color:var(--body);opacity:1;
+}
+body blockquote.big .q-by::before{content:"\2014\00a0";opacity:.55}
+body blockquote.big .q-by b{font-weight:500;color:var(--ink)}
+
+/* ---- 2. typeface harmony: every control, map and widget uses the same family ---- */
+button,input,select,textarea,optgroup,
+.leaflet-container,.leaflet-popup-content,.leaflet-control,.leaflet-tooltip{font-family:var(--font)}
+
+/* ---- cookie choice banner ---- */
+.ck{position:fixed;left:50%;bottom:clamp(12px,2vw,24px);z-index:2000;width:min(980px,calc(100% - 24px));
+  transform:translate(-50%,24px);opacity:0;visibility:hidden;pointer-events:none;
+  transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .4s,visibility 0s .55s;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.ck.is-on{transform:translate(-50%,0);opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
+.ck-in{display:flex;align-items:center;gap:clamp(16px,3vw,32px);flex-wrap:wrap;justify-content:space-between;
+  padding:clamp(16px,2vw,22px) clamp(18px,2.4vw,28px);border-radius:24px;color:#fff;
+  background:linear-gradient(180deg,#0b12b0 0%,#02049a 60%,#00014f 100%);
+  box-shadow:0 24px 60px -18px rgba(0,1,79,.55),0 0 0 1px rgba(255,255,255,.1)}
+.ck-copy{flex:1 1 380px;min-width:0}
+.ck h2{margin:0 0 6px;font-family:var(--font);font-size:1.05rem;font-weight:500;letter-spacing:0;line-height:1.2;color:#fff}
+.ck p{margin:0;font-size:.9rem;line-height:1.5;color:rgba(255,255,255,.82)}
+.ck a{color:#a6dd99;text-decoration:underline;text-underline-offset:2px}
+.ck-btns{display:flex;gap:10px;flex-wrap:wrap;flex:0 1 auto}
+.ck-btn{font:inherit;font-size:.9rem;font-weight:500;line-height:1;cursor:pointer;white-space:nowrap;
+  padding:.85em 1.25em;border-radius:999px;border:2px solid rgba(255,255,255,.55);background:transparent;color:#fff;
+  transition:background .25s,color .25s,border-color .25s,transform .25s}
+.ck-btn:hover{background:rgba(255,255,255,.14);border-color:#fff}
+.ck-btn--primary{background:#5fa052;border-color:#5fa052;color:#00014f;font-weight:600}
+.ck-btn--primary:hover{background:#7fd06e;border-color:#7fd06e}
+.ck-btn--ghost{border-color:transparent;text-decoration:underline;text-underline-offset:3px}
+.ck-btn:focus-visible{outline:3px solid #a6dd99;outline-offset:2px}
+@media (max-width:640px){.ck-btns{width:100%}.ck-btn{flex:1 1 100%;text-align:center}}
+@media (prefers-reduced-motion:reduce){.ck{transition:none}}
+
+/* ---- value descriptors in Swahili (shown under the English value name) ---- */
+.panel .ht .sw{display:block;margin-top:.5rem;font-size:clamp(1rem,1.3vw,1.2rem);font-weight:400;letter-spacing:0;line-height:1.3;color:#a6dd99}
+
+/* ---- long list in the home facts (branch network) ---- */
+.h-facts dd.is-list{font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.3;letter-spacing:0}

@@ -36,7 +36,7 @@ body:not(.is-home) .phero::after{content:"";position:absolute;inset:auto -10% -4
 body:not(.is-home) .phero .label{font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-lite);display:flex;gap:.9rem}
 body:not(.is-home) .phero .label::before{display:none}
 body:not(.is-home) .phero .label::after{content:"";height:1px;width:clamp(40px,12vw,120px);background:linear-gradient(90deg,var(--green-lite),transparent)}
-body:not(.is-home) .phero h1{font-family:var(--serif);font-weight:320;font-variation-settings:"opsz" 144,"SOFT" 30;letter-spacing:-.035em;line-height:1.02;font-size:clamp(2.4rem,8.6vw,5.4rem);max-width:15ch;overflow-wrap:break-word}
+body:not(.is-home) .phero h1{font-family:var(--serif);font-weight:320;letter-spacing:-.035em;line-height:1.02;font-size:clamp(2.4rem,8.6vw,5.4rem);max-width:15ch;overflow-wrap:break-word}
 body:not(.is-home) .phero .lead{font-family:var(--serif);font-weight:340;font-size:clamp(1.1rem,3.6vw,1.5rem);line-height:1.4;max-width:34ch}
 em.ac{font-style:italic;font-weight:300;color:var(--green-ink)}
 .phero em.ac,.dark em.ac,.cta em.ac,.sec--night em.ac{color:var(--green-lite)}
@@ -47,7 +47,7 @@ body:not(.is-home) .sec .label{font-family:var(--mono);font-weight:400;font-size
 body:not(.is-home) .sec .label::before{display:none}
 body:not(.is-home) .sec .label::after{content:"";height:1px;flex:0 1 clamp(40px,14vw,140px);background:currentColor;opacity:.4}
 body:not(.is-home) .sec.dark .label{color:var(--green-lite)}
-body:not(.is-home) .sec h2{font-family:var(--serif);font-weight:340;font-variation-settings:"opsz" 96,"SOFT" 30;letter-spacing:-.03em;line-height:1.06;font-size:clamp(1.9rem,6.2vw,3.6rem);text-wrap:balance}
+body:not(.is-home) .sec h2{font-family:var(--serif);font-weight:340;letter-spacing:-.03em;line-height:1.06;font-size:clamp(1.9rem,6.2vw,3.6rem);text-wrap:balance}
 body:not(.is-home) .sec .lead,body:not(.is-home) .sec .prose{font-family:var(--serif);font-weight:350;font-size:clamp(1.1rem,3.4vw,1.4rem);line-height:1.5;color:var(--ink)}
 body:not(.is-home) .sec .lead b{display:block;font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-ink);margin-bottom:.5rem}
 body:not(.is-home) .sec .lead+.lead{margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid var(--line)}

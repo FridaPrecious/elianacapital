@@ -89,7 +89,7 @@ body.is-home{counter-reset:sec}
 .h-intro .h-copy>:not(.label):not(.h-display){grid-column:2}
 .h-loan .h-slot{grid-column:2;grid-row:3/span 4;align-self:start}
 .h-loan .h-copy>:not(.label):not(.h-display){grid-column:1}
-.is-home .h-lead{font-family:var(--serif);font-weight:360;font-variation-settings:"opsz" 72,"SOFT" 30;font-size:clamp(1.3rem,2vw,1.85rem);line-height:1.36;letter-spacing:-.012em;max-width:36ch;color:var(--ink);margin:0}
+.is-home .h-lead{font-family:var(--serif);font-weight:360;font-size:clamp(1.3rem,2vw,1.85rem);line-height:1.36;letter-spacing:-.012em;max-width:36ch;color:var(--ink);margin:0}
 .h-loan .h-lead{font-size:clamp(1.15rem,1.6vw,1.45rem);max-width:40ch}
 .h-facts{display:block;margin:clamp(32px,4vw,56px) 0 0;border-top:1px solid var(--ink)}
 .h-facts>div,.h-facts>div+div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr);gap:20px;align-items:baseline;padding:clamp(16px,2vw,26px) 0;border:0;border-bottom:1px solid var(--line);transition:padding .5s cubic-bezier(.2,.7,.2,1)}

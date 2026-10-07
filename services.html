@@ -75,13 +75,13 @@
       "logo": "https://eliana-capital.com/favicon/android-chrome-512x512.png",
       "image": "https://eliana-capital.com/og-image.png",
       "description": "Eliana Capital is a Kenyan digital microfinance lender offering responsible working-capital loans to micro and small business owners.",
-      "email": "support@eliana-capital.com",
-      "telephone": "+254721881177",
+      "email": "info@eliana-capital.com",
+      "telephone": ["+254118888801", "+254100888801"],
       "areaServed": { "@type": "Country", "name": "Kenya" },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+254721881177",
-        "email": "support@eliana-capital.com",
+        "telephone": ["+254118888801", "+254100888801"],
+        "email": "info@eliana-capital.com",
         "contactType": "customer service",
         "areaServed": "KE",
         "availableLanguage": ["English", "Swahili"]
@@ -99,17 +99,21 @@
       "url": "https://eliana-capital.com/",
       "image": ["https://eliana-capital.com/og-image.png", "https://eliana-capital.com/favicon/android-chrome-512x512.png"],
       "description": "Accessible, responsible lending for the people who keep Kenya's markets moving. Imaarika working-capital loans of KES 5,000 to 15,000, repaid daily over up to 30 days.",
-      "email": "support@eliana-capital.com",
-      "telephone": "+254721881177",
+      "email": "info@eliana-capital.com",
+      "telephone": ["+254118888801", "+254100888801"],
       "parentOrganization": { "@id": "https://eliana-capital.com/#organization" },
-      "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" },
+      "address": { "@type": "PostalAddress", "streetAddress": "#2B St. Andrews Towers, off State House Road", "addressLocality": "Nairobi", "addressCountry": "KE" },
       "areaServed": { "@type": "Country", "name": "Kenya" },
       "currenciesAccepted": "KES",
       "paymentAccepted": "Mobile money",
       "department": [
         { "@type": "FinancialService", "name": "Eliana Capital, Kawangware branch", "address": { "@type": "PostalAddress", "addressLocality": "Kawangware", "addressCountry": "KE" } },
         { "@type": "FinancialService", "name": "Eliana Capital, Utawala branch", "address": { "@type": "PostalAddress", "addressLocality": "Utawala", "addressCountry": "KE" } },
-        { "@type": "FinancialService", "name": "Eliana Capital, Thika branch", "address": { "@type": "PostalAddress", "addressLocality": "Thika", "addressCountry": "KE" } }
+        { "@type": "FinancialService", "name": "Eliana Capital, Thika branch", "address": { "@type": "PostalAddress", "addressLocality": "Thika", "addressCountry": "KE" } },
+        { "@type": "FinancialService", "name": "Eliana Capital, Ruiru branch", "address": { "@type": "PostalAddress", "addressLocality": "Ruiru", "addressCountry": "KE" } },
+        { "@type": "FinancialService", "name": "Eliana Capital, Kajiado branch", "address": { "@type": "PostalAddress", "addressLocality": "Kajiado", "addressCountry": "KE" } },
+        { "@type": "FinancialService", "name": "Eliana Capital, Ugunja branch", "address": { "@type": "PostalAddress", "addressLocality": "Ugunja", "addressCountry": "KE" } },
+        { "@type": "FinancialService", "name": "Eliana Capital, Kitale branch", "address": { "@type": "PostalAddress", "addressLocality": "Kitale", "addressCountry": "KE" } }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -165,6 +169,7 @@
     <link rel="stylesheet" href="css/v19.css">
     <link rel="stylesheet" href="css/v14.css">
     <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/v20.css">
 
     <style>
       /* ═══════════════════════════════════════════════════════════════════
@@ -268,24 +273,27 @@
 
       /* ═══════════════════════════════════════════════════════════════════
          PHONE FEATURE · Imaarika loan on-screen
+         Same look as the home-page phone: deep-blue metal body, blue gradient screen with a green glow,
+         glass panels, a green accent and the slow float / turn-to-the-pointer movement.
          ═══════════════════════════════════════════════════════════════════ */
       .phone-feature {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        perspective: 1400px;
-        min-height: 680px;
+        perspective: 1600px;
+        min-height: 700px;
         isolation: isolate;
       }
 
+      /* soft sunrise-blue / growth-green light behind the phone, like the page glow on the home page */
       .phone-glow {
         position: absolute;
-        width: 520px;
-        height: 520px;
+        width: 540px;
+        height: 540px;
         border-radius: 50%;
-        background: radial-gradient(circle at 50% 50%, rgba(1, 3, 149, 0.22), rgba(95, 160, 82, 0.12) 45%, transparent 72%);
-        filter: blur(50px);
+        background: radial-gradient(circle at 50% 50%, rgba(63, 86, 200, 0.30), rgba(95, 160, 82, 0.16) 46%, transparent 72%);
+        filter: blur(54px);
         z-index: 0;
         animation: phoneGlow 7s ease-in-out infinite;
         pointer-events: none;
@@ -294,38 +302,84 @@
         0%, 100% { transform: scale(1); opacity: 0.85; }
         50% { transform: scale(1.08); opacity: 1; }
       }
+      /* contact shadow on the page, as under the home phone */
+      .phone-shadow {
+        position: absolute;
+        bottom: 26px;
+        width: 240px;
+        height: 34px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at center, rgba(0, 1, 79, 0.42), transparent 70%);
+        filter: blur(10px);
+        z-index: 0;
+        animation: phoneShadow 7s ease-in-out infinite;
+      }
+      @keyframes phoneShadow {
+        0%, 100% { transform: scale(1); opacity: .9; }
+        50% { transform: scale(.86); opacity: .6; }
+      }
+
+      /* wrapper takes the pointer tilt + the entrance; the frame inside does the float */
+      .phone-rig {
+        position: relative;
+        z-index: 1;
+        transform-style: preserve-3d;
+        transform: rotateX(var(--px, 0deg)) rotateY(calc(var(--py, 0deg) + var(--spin, 0deg)));
+        transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+      }
+      .phone-feature:not(.is-in) .phone-rig { opacity: 0; transform: translateY(70px) scale(.86) rotateY(-70deg); }
+      .phone-feature.is-in .phone-rig { animation: phoneIn 1.5s cubic-bezier(.22, 1.2, .36, 1) backwards; }
+      @keyframes phoneIn {
+        0%   { opacity: 0; transform: translateY(70px) scale(.86) rotateY(-70deg); }
+        55%  { opacity: 1; }
+        100% { opacity: 1; transform: translateY(0) scale(1) rotateY(0deg); }
+      }
 
       .phone-frame {
         position: relative;
         width: 320px;
         aspect-ratio: 9 / 19.5;
-        border-radius: 44px;
-        background: linear-gradient(155deg, #1b1e3a 0%, #010395 45%, #00014f 100%);
-        padding: 12px;
+        border-radius: 48px;
+        padding: 9px;
+        background:
+          linear-gradient(150deg, #3a46d6 0%, #0a1070 24%, #070b5c 52%, #050845 78%, #1d5a35 130%);
         box-shadow:
-          0 60px 100px -40px rgba(1, 3, 149, 0.55),
-          0 30px 60px -30px rgba(0, 0, 0, 0.5),
-          0 0 0 1px rgba(255, 255, 255, 0.08),
-          inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-        transform: rotateY(-6deg) rotateX(2deg);
-        transform-style: preserve-3d;
+          0 60px 90px -40px rgba(0, 1, 79, 0.65),
+          0 30px 50px -30px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(255, 255, 255, 0.10),
+          inset 0 0 0 2px rgba(147, 168, 255, 0.28),
+          inset 0 2px 3px rgba(255, 255, 255, 0.35);
         animation: phoneFloat 7s ease-in-out infinite;
-        z-index: 1;
       }
       @keyframes phoneFloat {
-        0%, 100% { transform: rotateY(-6deg) rotateX(2deg) translateY(0); }
-        50% { transform: rotateY(-6deg) rotateX(2deg) translateY(-14px); }
+        0%, 100% { transform: translateY(0) rotateZ(0deg); }
+        50% { transform: translateY(-14px) rotateZ(.4deg); }
       }
+      /* side buttons */
+      .phone-frame::before, .phone-frame::after {
+        content: ""; position: absolute; width: 4px; border-radius: 3px; background: linear-gradient(180deg, #2b36c9, #070b5c);
+      }
+      .phone-frame::before { right: -3px; top: 150px; height: 70px; }
+      .phone-frame::after { left: -3px; top: 120px; height: 44px; box-shadow: 0 62px 0 #0a1070; }
 
-      .phone-notch {
+      /* black bezel, then the screen */
+      .phone-bezel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 3px;
+        border-radius: 40px;
+        background: #02030c;
+      }
+      .phone-island {
         position: absolute;
-        top: 18px;
+        top: 15px;
         left: 50%;
         transform: translateX(-50%);
-        width: 92px;
-        height: 22px;
-        border-radius: 12px;
-        background: #05060f;
+        width: 94px;
+        height: 26px;
+        border-radius: 14px;
+        background: #000;
         z-index: 5;
       }
 
@@ -333,141 +387,161 @@
         position: relative;
         width: 100%;
         height: 100%;
-        border-radius: 34px;
+        border-radius: 37px;
         overflow: hidden;
-        background: linear-gradient(180deg, #fefdf3 0%, #f3f4fb 100%);
+        background:
+          radial-gradient(circle at 88% 79%, rgba(95, 160, 82, .5), rgba(95, 160, 82, 0) 62%),
+          linear-gradient(180deg, #0b12b0 0%, #02049a 55%, #00014f 100%);
         display: flex;
         flex-direction: column;
-        padding: 46px 14px 18px;
+        padding: 52px 16px 18px;
         box-sizing: border-box;
-        color: #010395;
+        color: #fff;
         font-family: "Sofia Pro", "Outfit", system-ui, sans-serif;
+      }
+      /* glass reflection that drifts across the screen, like the glass layer on the home phone */
+      .phone-screen::after {
+        content: "";
+        position: absolute;
+        inset: -20% -60%;
+        background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .09) 50%, transparent 58%);
+        transform: translateX(-60%);
+        animation: phoneSheen 8s ease-in-out 1.6s infinite;
+        pointer-events: none;
+        z-index: 6;
+      }
+      @keyframes phoneSheen {
+        0%, 55% { transform: translateX(-60%); }
+        100% { transform: translateX(60%); }
       }
 
       .phone-appbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 6px 6px 12px;
-        border-bottom: 1px solid rgba(1, 3, 149, 0.08);
+        padding: 4px 4px 12px;
       }
       .phone-brand {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        font-size: 11.5px;
-        font-weight: 600;
-        letter-spacing: 0.02em;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
+        color: #fff;
       }
-      .phone-brand-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #5fa052;
-        box-shadow: 0 0 0 3px rgba(95, 160, 82, 0.2);
-      }
+      .phone-brand img { width: 22px; height: 22px; display: block; }
       .phone-product {
-        font-family: "Sofia Pro", "Outfit", system-ui, sans-serif;
-        font-size: 9.5px;
-        letter-spacing: 0.16em;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: #5fa052;
-        background: rgba(95, 160, 82, 0.1);
-        padding: 3px 8px;
+        color: #a6dd99;
+        background: rgba(166, 221, 153, 0.12);
+        border: 1px solid rgba(166, 221, 153, 0.35);
+        padding: 4px 10px;
         border-radius: 99px;
       }
 
-      .phone-hero { padding: 16px 6px 12px; }
+      .phone-hero { padding: 10px 4px 14px; }
       .phone-hero-label {
-        font-family: "Sofia Pro", "Outfit", system-ui, sans-serif;
-        font-size: 9px;
-        letter-spacing: 0.18em;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #5a5f7d;
+        color: #a6dd99;
         margin: 0 0 6px;
       }
       .phone-hero-amount {
-        font-family: "Sofia Pro", "Outfit", system-ui, sans-serif;
-        font-size: 22px;
-        font-weight: 400;
-        letter-spacing: -0.02em;
+        font-size: 26px;
+        font-weight: 500;
+        letter-spacing: -0.015em;
         line-height: 1.1;
-        margin: 0 0 6px;
-        color: #010395;
+        margin: 0 0 8px;
+        color: #fff;
+        white-space: nowrap;
       }
       .phone-hero-amount strong { font-weight: 500; }
-      .phone-hero-amount span { opacity: 0.35; margin: 0 4px; }
+      .phone-hero-amount span { opacity: 0.45; margin: 0 2px; }
       .phone-hero-sub {
-        font-size: 10.5px;
-        color: #5a5f7d;
+        font-size: 12px;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.72);
         margin: 0;
-        letter-spacing: 0.01em;
       }
 
       .phone-list {
         list-style: none;
-        padding: 0;
-        margin: 6px 0 0;
+        padding: 4px 14px;
+        margin: 4px 0 0;
         display: flex;
         flex-direction: column;
-        gap: 1px;
-        background: rgba(1, 3, 149, 0.07);
-        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.11);
+        border-radius: 22px;
         overflow: hidden;
         flex: 1;
       }
       .phone-list li {
-        background: #ffffff;
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         gap: 10px;
-        padding: 9px 11px;
-        font-size: 10.5px;
+        flex: 1;
+        padding: 6px 0;
+        font-size: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        opacity: 0;
+        transform: translateY(10px);
       }
+      .phone-list li:last-child { border-bottom: 0; }
+      .phone-feature.is-in .phone-list li {
+        animation: rowIn .6s cubic-bezier(.22, 1, .36, 1) both;
+        animation-delay: calc(.7s + var(--i, 0) * .07s);
+      }
+      @keyframes rowIn { to { opacity: 1; transform: none; } }
       .phone-key {
-        color: #5a5f7d;
-        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 400;
         flex-shrink: 0;
-        letter-spacing: 0.005em;
       }
       .phone-val {
         text-align: right;
-        color: #010395;
-        font-weight: 600;
-        line-height: 1.3;
+        color: #fff;
+        font-weight: 500;
+        line-height: 1.25;
       }
       .phone-val small {
         display: block;
         font-weight: 400;
-        font-size: 9px;
-        color: #5a5f7d;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.62);
         margin-top: 1px;
-        letter-spacing: 0.01em;
       }
-      .phone-val--good { color: #5fa052; }
-      .phone-val--good small { color: #5fa052; opacity: 0.75; }
+      .phone-val--good { color: #7fd06e; }
+      .phone-val--good small { color: #7fd06e; opacity: 0.8; }
 
       .phone-home {
-        width: 96px;
-        height: 4px;
-        border-radius: 2px;
-        background: rgba(1, 3, 149, 0.18);
+        width: 108px;
+        height: 5px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.85);
         margin: 14px auto 0;
       }
 
       @media (max-width: 1100px) {
-        .phone-feature { min-height: 620px; }
+        .phone-feature { min-height: 640px; }
         .phone-frame { width: 300px; }
         .phone-glow { width: 460px; height: 460px; }
       }
       @media (max-width: 900px) {
-        .phone-feature { min-height: 560px; }
-        .phone-frame { width: 280px; transform: none; animation: none; }
+        .phone-feature { min-height: 600px; }
+        .phone-frame { width: 290px; }
         .phone-glow { width: 400px; height: 400px; }
       }
       @media (prefers-reduced-motion: reduce) {
-        .phone-frame, .phone-glow { animation: none !important; }
+        .phone-frame, .phone-glow, .phone-shadow, .phone-screen::after { animation: none !important; }
+        .phone-feature .phone-rig { opacity: 1 !important; transform: none !important; animation: none !important; }
+        .phone-list li { opacity: 1 !important; transform: none !important; animation: none !important; }
       }
     </style>
 </head>
@@ -487,8 +561,8 @@
 </div></header>
 <nav class="menu" id="menu" aria-label="Main">
 <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About us</a></li><li><a href="services.html" aria-current="page">Our services</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="customer-stories.html">Customer stories</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="branches.html">Our branches</a></li><li><a href="contact.html">Contact us</a></li></ul>
-<aside><h2>Talk to us</h2><ul class="reach"><li><a href="tel:+254721881177"><span class="ic ic-tel" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+254 721881177</span></a></li><li><a href="https://wa.me/254721881177"><span class="ic ic-wa" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span>WhatsApp us</span></a></li><li><a href="mailto:support@eliana-capital.com"><span class="ic ic-mail" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span>support@eliana-capital.com</span></a></li></ul>
-<h2>Find us</h2><p class="reach-pin"><span class="ic ic-pin" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Kawangware, Utawala, Thika<br>Head office, Nairobi</span></p></aside>
+<aside><h2>Talk to us</h2><ul class="reach"><li><a href="tel:+254118888801"><span class="ic ic-tel" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+254 118 888801</span></a></li><li><a href="tel:+254100888801"><span class="ic ic-tel" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+254 100 888801</span></a></li><li><a href="https://wa.me/254118888801"><span class="ic ic-wa" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span>WhatsApp us</span></a></li><li><a href="mailto:info@eliana-capital.com"><span class="ic ic-mail" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span>info@eliana-capital.com</span></a></li></ul>
+<h2>Find us</h2><p class="reach-pin"><span class="ic ic-pin" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Kawangware, Utawala, Thika, Ruiru, Kajiado, Ugunja, Kitale<br>Head office: #2B St. Andrews Towers, off State House Road, Nairobi</span></p></aside>
 </nav>
 
 <main id="main">
@@ -508,14 +582,17 @@
 
 <div class="phone-feature" aria-label="Imaarika loan details shown on a phone screen">
     <div class="phone-glow" aria-hidden="true"></div>
+    <div class="phone-shadow" aria-hidden="true"></div>
 
+    <div class="phone-rig">
     <div class="phone-frame">
-        <div class="phone-notch" aria-hidden="true"></div>
+      <div class="phone-bezel">
+        <div class="phone-island" aria-hidden="true"></div>
 
         <div class="phone-screen">
             <!-- App bar -->
             <div class="phone-appbar">
-                <span class="phone-brand"><span class="phone-brand-dot" aria-hidden="true"></span>Eliana Capital</span>
+                <span class="phone-brand"><img src="assets/logo-mark-white.svg" alt="" width="22" height="22" aria-hidden="true">Eliana Capital</span>
                 <span class="phone-product">Imaarika</span>
             </div>
 
@@ -528,38 +605,19 @@
 
             <!-- Detail rows -->
             <ul class="phone-list">
-                <li>
-                    <span class="phone-key">Processing fee</span>
-                    <span class="phone-val">KES 500</span>
-                </li>
-                <li>
-                    <span class="phone-key">Interest</span>
-                    <span class="phone-val">27%</span>
-                </li>
-                <li>
-                    <span class="phone-key">Penalties</span>
-                    <span class="phone-val">Stated up front<small>You see them before you accept</small></span>
-                </li>
-                <li>
-                    <span class="phone-key">Hidden charges</span>
-                    <span class="phone-val phone-val--good">None</span>
-                </li>
-                <li>
-                    <span class="phone-key">Repaying early</span>
-                    <span class="phone-val phone-val--good">Welcome<small>No punitive charge</small></span>
-                </li>
-                <li>
-                    <span class="phone-key">Decision target</span>
-                    <span class="phone-val">2 hours<small>On complete applications</small></span>
-                </li>
-                <li>
-                    <span class="phone-key">Money moves by</span>
-                    <span class="phone-val">Mobile money</span>
-                </li>
+                <li style="--i:0"><span class="phone-key">Processing fee</span><span class="phone-val">KES 500</span></li>
+                <li style="--i:1"><span class="phone-key">Interest</span><span class="phone-val">27%</span></li>
+                <li style="--i:2"><span class="phone-key">Penalties</span><span class="phone-val">Stated up front<small>You see them before you accept</small></span></li>
+                <li style="--i:3"><span class="phone-key">Hidden charges</span><span class="phone-val phone-val--good">None</span></li>
+                <li style="--i:4"><span class="phone-key">Repaying early</span><span class="phone-val phone-val--good">Welcome<small>No punitive charge</small></span></li>
+                <li style="--i:5"><span class="phone-key">Decision target</span><span class="phone-val">2 hours<small>On complete applications</small></span></li>
+                <li style="--i:6"><span class="phone-key">Money moves by</span><span class="phone-val">Mobile money</span></li>
             </ul>
 
             <div class="phone-home" aria-hidden="true"></div>
         </div>
+      </div>
+    </div>
     </div>
 </div>
 </div></section>
@@ -618,11 +676,11 @@
 <div class="container foot-grid">
 <div><a class="logo logo--foot" href="index.html" aria-label="Eliana Capital, home"><img class="logo-on-dark" src="assets/logo-white.svg" alt="Eliana Capital, we grow together" width="134" height="46"><img class="logo-on-light" src="assets/logo-color.svg" alt="" width="134" height="46" aria-hidden="true"></a><p class="tag">Accessible, responsible lending for the people who keep Kenya's markets moving.</p></div>
 <div><h2>Explore</h2><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About us</a></li><li><a href="services.html">Our services</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="customer-stories.html">Customer stories</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="branches.html">Our branches</a></li><li><a href="contact.html">Contact us</a></li></ul></div>
-<div><h2>Reach us</h2><ul class="reach"><li><a href="tel:+254721881177"><span class="ic ic-tel" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+254 721881177</span></a></li><li><a href="https://wa.me/254721881177"><span class="ic ic-wa" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span>WhatsApp</span></a></li><li><a href="mailto:support@eliana-capital.com"><span class="ic ic-mail" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span>support@eliana-capital.com</span></a></li></ul></div>
+<div><h2>Reach us</h2><ul class="reach"><li><a href="tel:+254118888801"><span class="ic ic-tel" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+254 118 888801</span></a></li><li><a href="tel:+254100888801"><span class="ic ic-tel" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>+254 100 888801</span></a></li><li><a href="https://wa.me/254118888801"><span class="ic ic-wa" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span>WhatsApp</span></a></li><li><a href="mailto:info@eliana-capital.com"><span class="ic ic-mail" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span>info@eliana-capital.com</span></a></li></ul></div>
 <div><h2>Good to know</h2><ul><li><a href="privacy.html">Privacy notice</a></li><li><a href="terms.html">Terms of use</a></li><li><a href="accessibility.html">Accessibility statement</a></li><li><a href="contact.html#complaint">Make a complaint</a></li><li><a href="faqs.html">Questions about pricing</a></li></ul></div>
 </div>
 <div class="foot-word" aria-hidden="true">Eliana</div>
-<div class="foot-base"><div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px"><span>&copy; <span data-year>2026</span> Eliana Capital Limited. We grow together.</span><span class="foot-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></span></div></div>
+<div class="foot-base"><div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px"><span>&copy; <span data-year>2026</span> Eliana Capital Limited. We grow together.</span><span class="foot-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a><a href="#cookies" data-cookie-settings>Cookie settings</a></span></div></div>
 </footer>
 
 <script src="js/imgdata.js"></script>
@@ -643,5 +701,7 @@
 <script src="js/phone3d.js"></script>
 <script src="js/v14.js"></script>
 <script src="js/v19.js"></script>
+<script src="js/phone-card.js"></script>
+<script src="js/cookies.js"></script>
 </body>
 </html>

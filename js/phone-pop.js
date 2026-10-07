@@ -175,7 +175,7 @@
   /* the drop-in on load: a soft spring with one gentle settle (not a bounce) */
   function drop(t) { if (t <= 0) return 0; var w = 5.2, z = .8, d = Math.sqrt(1 - z * z); return 1 - Math.exp(-z * w * t) * (Math.cos(w * d * t) + z / d * Math.sin(w * d * t)); }
   var avoidEl = anchors.map(function (a) { var q = a.getAttribute("data-avoid"); return q ? document.querySelector(q) : null; });
-  var t0 = performance.now() + (reduce ? 0 : 3200), FLY_MAX = 2.4, HOLD = .2, last = performance.now(), curScr = 0, GAP = 26;
+  var t0 = performance.now() + (reduce ? 0 : 700), FLY_MAX = 2.4, HOLD = .2, last = performance.now(), curScr = 0, GAP = 26;
 
   function frame(now) {
     requestAnimationFrame(frame);
