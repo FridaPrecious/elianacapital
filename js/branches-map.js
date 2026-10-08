@@ -4,13 +4,13 @@
     if (!mapEl || typeof L === 'undefined') return;
 
     const branches = [
-        { id: 'kawangware', name: 'Kawangware',   coords: [-1.2755, 36.7552], zoom: 14, desc: 'Main market area, opposite the stage.' },
-        { id: 'utawala',    name: 'Utawala',      coords: [-1.2935, 36.9558], zoom: 14, desc: 'Off the Eastern Bypass, near the shopping centre.' },
-        { id: 'thika',      name: 'Thika',        coords: [-1.0333, 37.0667], zoom: 13, desc: 'Town centre, along Kenyatta Highway.' },
-        { id: 'ruiru', name: 'Ruiru', coords: [-1.1459, 36.96], zoom: 13, desc: 'Town centre branch. Call or WhatsApp us to confirm opening hours.' },
         { id: 'kajiado', name: 'Kajiado', coords: [-1.8524, 36.7768], zoom: 13, desc: 'Town centre branch. Call or WhatsApp us to confirm opening hours.' },
-        { id: 'ugunja', name: 'Ugunja', coords: [0.2, 34.28], zoom: 13, desc: 'Town centre branch. Call or WhatsApp us to confirm opening hours.' },
+        { id: 'kawangware', name: 'Kawangware',   coords: [-1.2755, 36.7552], zoom: 14, desc: 'Main market area, opposite the stage.' },
         { id: 'kitale', name: 'Kitale', coords: [1.0191, 35.002], zoom: 13, desc: 'Town centre branch. Call or WhatsApp us to confirm opening hours.' },
+        { id: 'ruiru', name: 'Ruiru', coords: [-1.1459, 36.96], zoom: 13, desc: 'Town centre branch. Call or WhatsApp us to confirm opening hours.' },
+        { id: 'thika',      name: 'Thika',        coords: [-1.0333, 37.0667], zoom: 13, desc: 'Town centre, along Kenyatta Highway.' },
+        { id: 'ugunja', name: 'Ugunja', coords: [0.2, 34.28], zoom: 13, desc: 'Town centre branch. Call or WhatsApp us to confirm opening hours.' },
+        { id: 'utawala',    name: 'Utawala',      coords: [-1.2935, 36.9558], zoom: 14, desc: 'Off the Eastern Bypass, near the shopping centre.' },
         { id: 'nairobi',    name: 'Nairobi (HQ)', coords: [-1.2921, 36.8219], zoom: 14, desc: 'Head office, #2B St. Andrews Towers, off State House Road.' }
     ];
 

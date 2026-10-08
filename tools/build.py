@@ -814,7 +814,7 @@ def build_contact():
     hero = phero("Contact us", "Talk to us. We will take it from here.",
                  "Ask for a call back, apply for support, or tell us when we have got something wrong.", variant="globe")
     forms = ""
-    for k, intro in [("callback", "Leave your number and a good time. A loan officer will call you."),
+    for k, intro in [("callback", "Leave your number and a good time to reach out to you. A loan officer will call you."),
                      ("apply", "Tell us about your business and what you need. We will confirm the full price before you accept."),
                      ("complaint", "We are sorry we let you down. Tell us what happened and we will look into it.")]:
         forms += f'<form class="form" id="{k}" role="tabpanel" aria-labelledby="t-{k}-tab" data-form novalidate><p>{intro}</p>{form_fields(k)}</form>'

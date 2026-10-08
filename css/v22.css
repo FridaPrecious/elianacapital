@@ -161,3 +161,25 @@ html.js .trow.is-in{opacity:1;transform:none}
   background-image:url("../assets/logo-mark-white.svg");
 }
 @media (prefers-reduced-motion:reduce){.leaflet-marker-icon .branch-pin,.leaflet-marker-icon .branch-pin::before{transition:none}}
+
+/* ---- About: leadership portraits are black and white until hovered, focused or clicked ---- */
+.people--bw .person{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.people--bw .person:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+.people--bw .portrait img{filter:grayscale(1) contrast(1.05);transition:filter .6s var(--ease),transform 1s var(--ease)}
+.people--bw .person:hover .portrait img,
+.people--bw .person:focus-visible .portrait img,
+.people--bw .person.is-color .portrait img{filter:grayscale(0) contrast(1)}
+@media (prefers-reduced-motion:reduce){.people--bw .portrait img{transition:none}}
+
+/* ---- Customer stories: a fourth story card in the staggered grid ---- */
+@media (min-width:861px){
+  .stories-grid .story:nth-child(3){grid-column:2/8}
+  .stories-grid .story:nth-child(4){grid-column:8/13;margin-top:clamp(40px,9vw,150px)}
+  .stories-grid .story:nth-child(4) .photo{aspect-ratio:4/5}
+}
+
+/* ---- Customer stories: a fifth card (salon, maize farmers and the rest) keeps the staggered rhythm ---- */
+@media (min-width:861px){
+  .stories-grid .story:nth-child(5){grid-column:3/9}
+  .stories-grid .story:nth-child(5) .photo{aspect-ratio:5/4}
+}

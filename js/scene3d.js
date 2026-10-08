@@ -239,20 +239,30 @@
       spin.add(new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 90, .04, 10), new T.MeshStandardMaterial({ color: 0xa6dd99, emissive: 0x5fa052, emissiveIntensity: .8 })));
       pts.forEach(function (p, i) { var m = new T.Mesh(new T.SphereGeometry(.2 + i * .035, 40, 40), glossy(i === 4 ? 0xffffff : 0x5fa052, .15)); m.position.copy(p); m.userData = { i: i, base: p.clone() }; spin.add(m); parts.push(m); });
     } else if (v === "cards") {
-      var names = ["tailor.jpg", "shop.jpg", "farmers.jpg", "couple.jpg"], pos = [[.72, .35], [.5, .3], [.74, .55], [.45, .4]], D = window.ELIANA_IMGS, CA = 0.78;
-      [0x5fa052, 0xd8daf4, 0x2328ff, 0xa6dd99].forEach(function (c, i) {
-        var edge = glossy(c, .3), faces = [edge, edge, edge, edge, edge, edge];
-        var m = new T.Mesh(new T.BoxGeometry(1.05, 1.35, .09), faces); var a = i / 4 * Math.PI * 2;
-        m.userData = { a: a }; spin.add(m); parts.push(m);
-        if (D && D[names[i]]) {
+      /* Six story cards revolve; each one opens its story (hover shows a label, click or tap goes there). */
+      var STORIES = [
+        ["tailor.jpg", [.72, .35], "story-dressmaker.html", "Stitching a bigger order", 0x5fa052],
+        ["salon.jpg", [.58, .4], "story-salon.html", "Keeping every chair busy", 0xd8daf4],
+        ["farmers.jpg", [.74, .55], "story-farmers.html", "Planting on time", 0x2328ff],
+        ["maize.jpg", [.5, .5], "story-maize-farmers.html", "Feeding the maize on time", 0x7fd06e],
+        ["couple.jpg", [.45, .4], "story-farming-couple.html", "Small loans, steady harvests", 0xa6dd99],
+        ["how-lift.jpg", [.4, .3], "story-mama-mboga.html", "A full stall, every morning", 0x8f94ff]
+      ], D = window.ELIANA_IMGS, CA = 0.78;
+      STORIES.forEach(function (sd, i) {
+        var edge = glossy(sd[4], .3), faces = [edge, edge, edge, edge, edge, edge];
+        var m = new T.Mesh(new T.BoxGeometry(1.05, 1.35, .09), faces); var a = i / STORIES.length * Math.PI * 2;
+        m.userData = { a: a, href: sd[2], title: sd[3] }; spin.add(m); parts.push(m);
+        if (D && D[sd[0]]) {
           var im = new Image();
           im.onload = function () {
             var tex = new T.Texture(im); tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = 4; tex.needsUpdate = true;
-            var rx = Math.min(1, CA / (im.width / im.height)); tex.repeat.set(rx, 1); tex.offset.set((1 - rx) * pos[i][0], 0);
+            var ar = im.width / im.height;
+            if (ar >= CA) { var rx = CA / ar; tex.repeat.set(rx, 1); tex.offset.set((1 - rx) * sd[1][0], 0); }
+            else { var ry = ar / CA; tex.repeat.set(1, ry); tex.offset.set(0, (1 - ry) * (1 - sd[1][1])); }
             var ph = new T.MeshBasicMaterial({ map: tex, toneMapped: false });
             faces[4] = ph; faces[5] = ph; m.material = faces;
           };
-          im.src = D[names[i]][0];
+          im.src = D[sd[0]][0];
         }
       });
     } else if (v === "knot") {
@@ -280,9 +290,36 @@
 
     var st = { tx: 0, ty: 0, px: 0, py: 0, on: true }; track(host, st);
     var narrow = false;
+    var szf = canvas.getAttribute("data-size") === "sm" ? .7 : 1;   /* data-size="sm": a smaller centrepiece */
+    if (v === "cards") (function () {
+      var ray = new T.Raycaster(), nd = new T.Vector2(), tip = document.createElement("span"), here = (location.pathname.split("/").pop() || "");
+      tip.setAttribute("aria-hidden", "true");
+      tip.style.cssText = "position:absolute;z-index:6;pointer-events:none;opacity:0;transform:translate(14px,14px);transition:opacity .18s;background:#fff;color:#010395;font-weight:600;font-size:.85rem;line-height:1.2;padding:.5em .85em;border-radius:999px;box-shadow:0 10px 30px -10px rgba(1,3,149,.45);white-space:nowrap";
+      if (getComputedStyle(host).position === "static") host.style.position = "relative";
+      host.appendChild(tip);
+      function pick(e) {
+        var b = canvas.getBoundingClientRect(); if (!b.width || !b.height) return null;
+        if (e.target && e.target.closest && e.target.closest("a,button,input,select,textarea")) return null;
+        nd.set(((e.clientX - b.left) / b.width) * 2 - 1, -(((e.clientY - b.top) / b.height) * 2 - 1));
+        ray.setFromCamera(nd, cam);
+        var hit = ray.intersectObjects(parts, false);
+        return hit.length ? hit[0].object : null;
+      }
+      host.addEventListener("pointermove", function (e) {
+        var o = pick(e);
+        host.style.cursor = o ? "pointer" : "";
+        if (o) { var hb = host.getBoundingClientRect(); tip.textContent = "Read story: " + o.userData.title; tip.style.left = (e.clientX - hb.left) + "px"; tip.style.top = (e.clientY - hb.top) + "px"; tip.style.opacity = "1"; }
+        else tip.style.opacity = "0";
+      });
+      host.addEventListener("pointerleave", function () { host.style.cursor = ""; tip.style.opacity = "0"; });
+      host.addEventListener("click", function (e) {
+        var o = pick(e); if (!o || o.userData.href === here) return;
+        var a = document.createElement("a"); a.href = o.userData.href; a.style.display = "none"; document.body.appendChild(a); a.click(); a.remove();
+      });
+    })();
     fit(r, cam, host, function () {
       var vh = 2 * 12 * Math.tan(T.MathUtils.degToRad(cam.fov / 2)), vw = vh * cam.aspect; narrow = cam.aspect < .9;
-      hero.userData.s = narrow ? vw * (v === "cards" ? .165 : .155) : Math.min(vh * .3, vw * (v === "cards" ? .1 : .115));
+      hero.userData.s = szf * (narrow ? vw * (v === "cards" ? .165 : .155) : Math.min(vh * .3, vw * (v === "cards" ? .1 : .115)));
       hero.userData.x = narrow ? vw * .2 : vw * (v === "cards" ? .31 : .3); hero.userData.y = narrow ? vh * .3 : 0;
       orbs.scale.setScalar(narrow ? .45 : 1); orbs.position.y = narrow ? vh * .27 : 0;
     });
@@ -300,7 +337,7 @@
         var d = m.userData;
         if (v === "bars") { if (d.orb) { m.position.y = 1.55 + Math.sin(t * 1.6) * .1; m.position.x = .95 * (1 + p * .9); } else { m.scale.y = d.h * (1 + .08 * Math.sin(t * 1.4 + d.i)); m.position.x = (d.i - 1) * .95 * (1 + p * .9); } }
         else if (v === "path") { m.position.y = d.base.y + Math.sin(t * 1.3 + d.i * .9) * .1; m.scale.setScalar(1 + .12 * Math.max(0, Math.sin(t * 1.3 - d.i * .8))); }
-        else if (v === "cards") { var R = 1.55 * (1 + p * .5); m.position.set(Math.cos(t * .5 + d.a) * R, Math.sin(t * .9 + d.a) * .25, Math.sin(t * .5 + d.a) * R); m.rotation.y = -(t * .5 + d.a) + Math.PI / 2; }
+        else if (v === "cards") { var R = 1.7 * (1 + p * .5); m.position.set(Math.cos(t * .5 + d.a) * R, Math.sin(t * .9 + d.a) * .25, Math.sin(t * .5 + d.a) * R); m.rotation.y = -(t * .5 + d.a) + Math.PI / 2; }
         else if (v === "shield") { m.scale.setScalar(1 + p * .22 * (d.i + 1)); m.rotation.x = t * (.35 + d.i * .2) * (d.i % 2 ? -1 : 1); m.rotation.y = t * (.25 + d.i * .15) + d.i; }
       });
       orbs.children.forEach(function (o) {
