@@ -1,0 +1,57 @@
+/* ================= v33: flowing menu =================
+   Clean rows. On hover a ribbon of the page name and a photo slides in from the edge the pointer came from.
+   (Idea after React Bits "Flowing Menu"; animation by Motion, motion.dev.) */
+
+/* the list itself: one calm column, hairline rows, small numbers */
+body .menu>ul{counter-reset:mi}
+body .menu>ul li{counter-increment:mi;transition:none!important}
+body .menu>ul a{position:relative;overflow:hidden;isolation:isolate;gap:1rem;justify-content:flex-start;transform:none!important;border-bottom:1px solid rgba(255,255,255,.14);padding:.24em 0;transition:color .3s ease}
+body .menu>ul li:first-child a{border-top:1px solid rgba(255,255,255,.14)}
+body .menu>ul a::before{content:counter(mi,decimal-leading-zero);flex:0 0 auto;min-width:2.2em;font-family:var(--font);font-size:.7rem;font-weight:500;letter-spacing:.16em;color:rgba(166,221,153,.8);transform:translateY(-.5em)}
+body .menu>ul a::after{margin-left:1em;color:var(--green-lite)}
+body .menu>ul .m-label{position:relative;z-index:1;white-space:nowrap;flex:0 0 auto}
+body .menu>ul .m-hint{margin-left:auto;font-family:var(--font);font-size:.8rem;font-weight:400;font-style:normal;letter-spacing:.04em;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;padding-right:.2rem}
+body .menu>ul a[aria-current="page"] .m-hint{color:rgba(166,221,153,.8)}
+
+/* the ribbon (two nested layers sliding in opposite directions, so the text stays still while the mask moves) */
+.menu .m-rib{position:absolute;inset:0;z-index:2;overflow:hidden;background:#f7f5ef;color:var(--blue);transform:translateY(101%);pointer-events:none}
+.menu .m-rib-in{position:absolute;inset:0;display:flex;align-items:center;transform:translateY(-101%);will-change:transform}
+.menu .m-track{display:flex;align-items:center;flex:0 0 auto;width:max-content;animation:mMarq 22s linear infinite}
+.menu .m-item{display:flex;align-items:center;gap:.5em;padding-right:.5em;white-space:nowrap;font-style:normal;color:var(--blue)}
+.menu .m-item b{font-weight:340;letter-spacing:-.025em}
+.menu .m-item i{display:block;width:3.1em;height:.84em;border-radius:999px;background-size:cover;background-position:center;box-shadow:0 0 0 2px rgba(1,3,149,.08)}
+.menu .m-item s{display:block;width:.26em;height:.26em;border-radius:50%;background:var(--green);margin:0 .5em;text-decoration:none}
+@keyframes mMarq{to{transform:translateX(-50%)}}
+
+@media (max-width:960px){body .menu{grid-template-columns:minmax(0,1fr)}body .menu>ul{min-width:0;max-width:100%}}
+
+/* hints: long wording on wide screens, short on phones */
+.menu .m-hs{display:none}
+@media (max-width:820px){
+  .menu .m-hl{display:none}
+  .menu .m-hs{display:inline}
+  body .menu>ul a{font-size:clamp(1.55rem,7vw,2.3rem)}
+  body .menu>ul .m-hint{font-size:.72rem;letter-spacing:.02em}
+  body .menu>ul a::after{display:none}
+}
+
+/* menu button: springy morph */
+.menu-btn i::before,.menu-btn i::after{transition:transform .55s cubic-bezier(.5,.85,.25,1.8),top .4s cubic-bezier(.5,.85,.25,1.1)}
+
+@media (prefers-reduced-motion:reduce){.menu .m-track{animation:none}}
+
+/* ---- phone: keep the menu's last lines clear of the Apply / WhatsApp bar, and let people close the bar ---- */
+@media (max-width:759px){
+  /* the menu already has Apply now (top), call and WhatsApp, so the bar steps aside while it is open */
+  .m-bar{transition:transform .45s var(--ease),opacity .3s ease}
+  .menu-open .m-bar{transform:translateY(120%);opacity:0;pointer-events:none;visibility:hidden;transition:transform .45s var(--ease),opacity .3s ease,visibility 0s .45s}
+  body .menu{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+  .bar-off body{padding-bottom:0}
+  .bar-off .m-bar{display:none!important}
+  .bar-off .ck{bottom:12px}
+  .m-bar .m-bar-x{position:absolute;right:8px;top:-22px;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;-webkit-tap-highlight-color:transparent}
+  .m-bar .m-bar-x span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--blue);box-shadow:0 4px 14px rgba(17,24,39,.28),0 0 0 1px rgba(17,24,39,.08);transition:transform .25s ease}
+  .m-bar .m-bar-x:active span{transform:scale(.88)}
+  .m-bar .m-bar-x svg{width:14px;height:14px}
+  .m-bar .m-bar-x:focus-visible span{outline:2px solid var(--blue);outline-offset:2px}
+}

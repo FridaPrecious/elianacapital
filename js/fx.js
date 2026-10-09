@@ -84,3 +84,13 @@
   });
 
 })();
+
+/* FAQ deep links: faqs.html#faq-cost opens that question and scrolls to it */
+(function () {
+  function go() {
+    var id = location.hash.slice(1); if (!id) return;
+    var d = document.querySelector('.faq details[id="' + id.replace(/"/g, "") + '"]'); if (!d) return;
+    d.open = true; setTimeout(function () { d.scrollIntoView({ block: "center", behavior: "smooth" }); }, 500);
+  }
+  go(); window.addEventListener("hashchange", go);
+})();
