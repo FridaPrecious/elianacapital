@@ -1,4 +1,20 @@
 ELIANA CAPITAL PROTOTYPE
+## v40 (map section colours, no side dots)
+- The "Several branches across Kenya" section now uses the same light white-and-blue look as the other sections (blue dots, blue and white buttons, green glow where a mark passes).
+- The column of progress dots on the right edge of the home page is removed (one line at the end of `css/v39.css`).
+
+## v39 (home page: "Several branches across Kenya" map)
+- New section on the home page, between customer stories and the FAQs: a dot map of Kenya with five Eliana marks drifting around at random, the heading "Several branches across Kenya.", the line "Not sure whether we serve your area? Contact us and we will tell you.", and two buttons: Request a call back (opens the call back tab on the Contact page) and WhatsApp us.
+- The map is stylised and the marks wander randomly, so it does not show where any real branch is. The map and the marks stand still for visitors who have reduced motion turned on, and the animation pauses when the section is off screen.
+- Files: `css/v39.css`, `js/v39.js`. Edit the section text in `index.html` (id `reach`); the number of marks is `COUNT` near the top of `js/v39.js`.
+
+## v37 (privacy of branch details, phone layout)
+- Branch locations are no longer shown anywhere: the "Our branches" page, map and list are removed (also from the menu, footer, sitemap and the home page), as are the branch town lists in the menu "Find us", Contact page, FAQ, About page stat, accessibility and privacy text, and the hidden search-engine data (structured data and keywords) on every page. The head office address and the two company phone numbers are kept.
+- Customer stories no longer name the town. The callback and apply forms ask for "Your area or town" as free text instead of a branch list.
+- All pages except the home page used a fixed 1280px-wide viewport, which is why they looked shrunk on phones. They now use the normal device-width viewport.
+- Loan section stat strip: the branch-count card is replaced with "0 hidden charges".
+- The old `tools/` generator scripts are not included (they contained branch data).
+
 ## v36 (phone: Apply now / WhatsApp bar)
 - The bar no longer sits on top of the menu: it slides away while the menu is open (the menu already has Apply now at the top and call / WhatsApp / email inside), so "Find us" is fully visible. It comes back when the menu closes.
 - The bar now has a small close (x) button at its top right corner. Closing it hides the bar on every page for the rest of that visit (browser tab); it returns on the next visit. Code is at the end of `js/v33.js`, styles at the end of `css/v33.css`.
@@ -22,18 +38,18 @@ ELIANA CAPITAL PROTOTYPE
 - The v32 decorations (stickers, vine, word mark) are not in this version.
 
 ## v31 (home stories fix)
-- Home page customer stories strip: the salon card is replaced by the farming couple, Thika (`assets/couple.jpg`, links to `story-farming-couple.html`). Strip is now dressmakers, farming couple, farmers.
+- Home page customer stories strip: the salon card is replaced by the farming couple (`assets/couple.jpg`, links to `story-farming-couple.html`). Strip is now dressmakers, farming couple, farmers.
 - The salon story page and its place on the Customer stories page are unchanged.
 
 ## v30 (stories pass)
-- Added two customer stories: maize farmers, Kitale (`story-maize-farmers.html`, `assets/maize.jpg`) and a salon owner, Utawala (`story-salon.html`, `assets/salon.jpg`).
-- Removed the Utawala roadside seller story (`story-market-seller.html`) from the stories page, home strip, 3D cards and sitemap. `assets/shop.jpg` stays: it is still used by the phone mock-up and the How it works banner.
-- Farming couple story is Thika again (was Mumias).
+- Added two customer stories: maize farmers (`story-maize-farmers.html`, `assets/maize.jpg`) and a salon owner (`story-salon.html`, `assets/salon.jpg`).
+- Removed the roadside seller story (`story-market-seller.html`) from the stories page, home strip, 3D cards and sitemap. `assets/shop.jpg` stays: it is still used by the phone mock-up and the How it works banner.
+- Farming couple story is unchanged.
 - Contact page call-back form: "Leave your number and a good time to reach out to you."
 - Story order: dressmaker, salon, farmers, maize farmers, farming couple, mama mboga (previous/next links follow it).
 
 ## v27 (homepage pass)
 - Footer: removed the sticky "footer reveal" (js/motion.js + css/v22.css). Footer scrolls normally and stays its own card.
 - Numbers: one count-up style (`<span class="num" data-num="30">`), JS in js/v22.js, styles in css/v22.css.
-- Loan section: removed the check icons, added the branches stat (7 + HQ).
+- Loan section: removed the check icons, added a stat to the strip.
 - "Who you are dealing with": sticky company plate + scroll-linked numbered ledger (`data-plate`, `data-ledger`).

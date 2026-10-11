@@ -11,13 +11,13 @@
   var PICS = {
     "index.html": "assets/tailor.jpg", "about.html": "assets/ayoti.jpeg", "services.html": "assets/offer-1.jpg",
     "how-it-works.html": "assets/how-lift.jpg", "customer-stories.html": "assets/couple.jpg", "faqs.html": "assets/how-respect.jpg",
-    "branches.html": "assets/shop.jpg", "contact.html": "assets/offer-4.jpg"
+    "contact.html": "assets/offer-4.jpg"
   };
   var HINTS = {
     "index.html": ["Start here", "Start here"], "about.html": ["Who we are", "Who we are"],
     "services.html": ["Loans for your business", "Our loans"], "how-it-works.html": ["Apply, repay, grow", "Step by step"],
     "customer-stories.html": ["Real stories", "Clients"], "faqs.html": ["Quick answers", "Quick answers"],
-    "branches.html": ["Find us near you", "Near you"], "contact.html": ["Talk to us", "Talk to us"]
+    "contact.html": ["Talk to us", "Talk to us"]
   };
   var EASE = [0.16, 1, 0.3, 1];
   var touchAt = 0;
