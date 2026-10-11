@@ -1,4 +1,10 @@
 ELIANA CAPITAL PROTOTYPE
+## v41 (phone layout: About and Services)
+- New `css/v41.css`, linked on every page, with phone-only rules (760px and below).
+- The stat circles (About page "100% female-owned..." and Services "Reward the repayer") now stack one per row, circle on the left and text on the right, instead of four squeezed side by side.
+- "Why you can trust us" rows have more room for their text on phones.
+- Removed the last town name from the stories (the planting farmers story).
+
 ## v40 (map section colours, no side dots)
 - The "Several branches across Kenya" section now uses the same light white-and-blue look as the other sections (blue dots, blue and white buttons, green glow where a mark passes).
 - The column of progress dots on the right edge of the home page is removed (one line at the end of `css/v39.css`).

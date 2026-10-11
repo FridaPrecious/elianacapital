@@ -1,0 +1,21 @@
+/* ================= v41: phone layout fixes for the About and Services pages ================= */
+@media (max-width:760px){
+  /* stat circles (timeline): one per row, circle on the left, text on the right, a thin line joining them */
+  #stats-nodes .stats-timeline{grid-template-columns:minmax(0,1fr)!important;gap:30px!important;padding:32px 20px 40px!important;max-width:100%!important}
+  #stats-nodes .timeline-line{top:44px!important;bottom:56px!important;left:44px!important;right:auto!important;width:1px!important;height:auto!important;transform:none!important;background:linear-gradient(180deg,transparent 0%,rgba(15,40,25,.16) 8%,rgba(15,40,25,.16) 92%,transparent 100%)!important}
+  #stats-nodes .stat-node{flex-direction:row!important;align-items:flex-start!important;text-align:left!important;gap:18px!important;padding:0!important}
+  #stats-nodes .node-circle{flex:0 0 48px!important;margin:0!important}
+  #stats-nodes .node-content{flex:1 1 auto;min-width:0;gap:4px!important;padding-top:2px}
+  #stats-nodes .node-value{font-size:clamp(28px,8.4vw,38px)!important;line-height:1.08!important}
+  #stats-nodes .node-label{margin-top:2px!important}
+  #stats-nodes .node-sub{max-width:none!important;margin:0!important;font-size:15px!important}
+  #stats-nodes .sec-head h2{margin-bottom:.45em!important}
+  #stats-nodes .sec-head .lead{margin-top:0!important}
+
+  /* "Why you can trust us": number + text + arrow, with room for the words */
+  #trust .trust-row{grid-template-columns:50px minmax(0,1fr) 38px!important;gap:6px 14px!important;padding-block:22px!important}
+  #trust .tr-num{font-size:42px!important;line-height:1!important}
+  #trust .tr-title{font-size:1.25rem!important}
+  #trust .tr-desc{font-size:.98rem!important;line-height:1.5!important}
+  #trust .tr-mark{width:38px!important;height:38px!important}
+}
