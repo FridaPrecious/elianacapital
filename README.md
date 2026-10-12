@@ -1,9 +1,19 @@
+## v44
+- Cookie banner is now white with blue text and a blue Accept button (css/v43.css, linked on all pages).
+
+## v43
+- Advisory board: each card's text is limited to 150 characters (ends with …) and is clickable / keyboard-accessible; it opens a profile popup with the full bio (Esc, X or outside click closes). Full bios live in `data-full` on each card in index.html — edit them there. The longer bios are placeholder wording; replace with real ones.
+
 ELIANA CAPITAL PROTOTYPE
+## v42 (towns back on the customer stories)
+- The customer stories show their town again, as before: the Customer stories page and cards, each story page (opening line and the Business / Branch or Location box), and the home page story card.
+- Everything else stays anonymous: no branches page, map or town list, nothing in the menu, footer, FAQ, contact form or hidden search data.
+
 ## v41 (phone layout: About and Services)
 - New `css/v41.css`, linked on every page, with phone-only rules (760px and below).
 - The stat circles (About page "100% female-owned..." and Services "Reward the repayer") now stack one per row, circle on the left and text on the right, instead of four squeezed side by side.
 - "Why you can trust us" rows have more room for their text on phones.
-- Removed the last town name from the stories (the planting farmers story).
+- Removed the last town name from the stories (the planting farmers story). (Reversed in v42.)
 
 ## v40 (map section colours, no side dots)
 - The "Several branches across Kenya" section now uses the same light white-and-blue look as the other sections (blue dots, blue and white buttons, green glow where a mark passes).
