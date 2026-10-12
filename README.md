@@ -1,4 +1,6 @@
 ## v44
+- "Read bio" is now a pill button (black outline, fills black on hover).
+- Advisory cue now reads "Read bio" in black, without the + icon.
 - Cookie banner is now white with blue text and a blue Accept button (css/v43.css, linked on all pages).
 
 ## v43

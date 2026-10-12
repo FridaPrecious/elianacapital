@@ -21,7 +21,7 @@ function open(c){
 cards.forEach(function(c){
  var b=c.querySelector('.orb-bio');
  b.textContent=clip(c.dataset.full);
- var m=document.createElement('span');m.className='orb-more';m.textContent='Read profile';
+ var m=document.createElement('button');m.type='button';m.tabIndex=-1;m.className='orb-more';m.textContent='Read bio';
  b.parentNode.appendChild(m);
  c.addEventListener('click',function(){open(c)});
  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c)}});

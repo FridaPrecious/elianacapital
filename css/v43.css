@@ -1,9 +1,8 @@
 /* v43 advisory: clickable cards + profile dialog */
 .advisor-orb[data-full]{cursor:pointer;position:relative}
 .advisor-orb[data-full]:focus-visible{outline:2px solid #010395;outline-offset:6px;border-radius:18px}
-.orb-more{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font:600 .82rem/1 inherit;color:#010395;letter-spacing:.02em}
-.orb-more::after{content:"+";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#010395;color:#fff;font-size:14px;transition:transform .3s}
-.advisor-orb:hover .orb-more::after{transform:rotate(90deg)}
+.orb-more{display:inline-block;margin-top:12px;padding:.7em 1.4em;border-radius:999px;border:2px solid #000;background:transparent;font:600 .85rem/1 inherit;color:#000 !important;letter-spacing:.02em;text-decoration:none;transition:background .25s,color .25s}
+.advisor-orb:hover .orb-more,.orb-more:hover{background:#000;color:#fff !important}
 .adv-dlg{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:18px;background:rgba(1,3,40,.55);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
 .adv-dlg.on{opacity:1;visibility:visible}
 .adv-card{position:relative;width:min(520px,100%);max-height:88vh;overflow:auto;background:linear-gradient(135deg,#fff,#f1f2ff);color:#0a0c2a;border-radius:22px;padding:28px 26px;box-shadow:0 30px 80px rgba(1,3,80,.35);transform:translateY(18px) scale(.97);transition:transform .35s cubic-bezier(.22,1,.36,1)}
